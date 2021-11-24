@@ -30,7 +30,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mernshopping', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/ATX-movie-gear', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,

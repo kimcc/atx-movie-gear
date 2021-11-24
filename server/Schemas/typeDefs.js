@@ -7,6 +7,8 @@ const typeDefs = gql`
     brand: String
     resolution: String
     lensCombatibility: String
+    image: String
+    reserveDays: Int
     price: Float
     quantity: Int
   }
@@ -16,6 +18,8 @@ const typeDefs = gql`
     Name: String
     Type: String
     brand: String
+    image: String
+    reserveDays: Int
     price: Float
     quantity: Int
   }
@@ -24,7 +28,8 @@ const typeDefs = gql`
     _id: ID
     User: [User]
     purchaseDate: String
-    reservationDate: String
+    reservationDates: String
+    reserveDays: Int
     products:[Camera, Lens]
     projectType: String
   }
@@ -44,6 +49,10 @@ const typeDefs = gql`
     user: User
   }
 
+  type Checkout {
+    session: ID
+  }
+
   type Query {
     Cameras: [Camera]
     Camera(_id: ID!): Camera
@@ -51,11 +60,12 @@ const typeDefs = gql`
     Lens(_id: ID!): Lens
     user: User
     order(_id: ID!): Order
+    checkout(products: [ID]!): Checkout
   }
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!, phoneNumber: String, mailList: Boolean): Auth
-    addOrder(User: ID!, purchaseDate: String!, reservationDate: String!, products: [ID]!, projectType: String!): Order
+    addOrder(User: ID!, purchaseDate: String!, reservationDates: String!, reservationDays: Int!, products: [ID]!, projectType: String!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String, phoneNumber: String, mailList: Boolean): User
     login(email: String!, password: String!): Auth
   }

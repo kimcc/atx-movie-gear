@@ -18,6 +18,14 @@ const lensSchema = new Schema({
     required: true,
     trim: true
   },
+  image:{
+    type: String,
+  },
+  reserveDays:{
+    type: Number,
+    min: 0,
+    default: 0
+  },
   price: {
     type: Number,
     required: true,

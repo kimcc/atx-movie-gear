@@ -14,7 +14,8 @@ const orderSchema = new Schema({
     default: Date.now
   },
   reservationDate: {
-    type: Date
+    type: String,
+    required: true
   },
   products:[
     {
