@@ -1,11 +1,6 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-
-  type Checkout {
-    session: ID
-  }
-
   type Camera {
     _id: ID
     modal: String
@@ -56,14 +51,12 @@ const typeDefs = gql`
     Lens(_id: ID!): Lens
     user: User
     order(_id: ID!): Order
-    checkout(products: [ID]!): Checkout
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addOrder(products: [ID]!): Order
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!, phoneNumber: String, mailList: Boolean): Auth
+    addOrder(User: ID!, purchaseDate: String!, reservationDate: String!, products: [ID]!, projectType: String!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String, phoneNumber: String, mailList: Boolean): User
-    updateProduct(_id: ID!, quantity: Int!): Product
     login(email: String!, password: String!): Auth
   }
 `;
