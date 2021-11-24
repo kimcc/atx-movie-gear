@@ -3,6 +3,11 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const lensSchema = new Schema({
+  Name: {
+    type: String,
+    required: true,
+    trim: true
+  },
   Type: {
     type: String,
     required: true,
@@ -12,6 +17,15 @@ const lensSchema = new Schema({
     type: String,
     required: true,
     trim: true
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  quantity:{
+    type: Number,
+    min: 0,
+    default: 1
   }
 });
 

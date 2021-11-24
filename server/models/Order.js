@@ -23,10 +23,10 @@ const orderSchema = new Schema({
     },
     {
       type: Schema.Types.ObjectId,
-      ref: 'Len'
+      ref: 'Lens'
     }
   ],
-  projectTypes: {
+  projectType: {
     type: String,
     required: true,
     trim: true
