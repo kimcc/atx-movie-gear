@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const lensSchema = new Schema({
-  Name: {
+  modal: {
     type: String,
     required: true,
     trim: true
   },
-  Type: {
+  type: {
     type: String,
     required: true,
     trim: true
