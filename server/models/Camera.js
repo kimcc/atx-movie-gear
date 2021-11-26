@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const cameraSchema = new Schema({
-  modal : {
+  modal: {
     type: String,
     required: true,
     trim: true

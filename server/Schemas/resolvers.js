@@ -1,27 +1,28 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Camera, Lens, Order } = require('../models');
+const { User, Camera, Order } = require('../models');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
   Query: {  
     checkout: async (parent, args, context) =>{
-      const order = new Order(args, { products: args.Camera & args.Lens });
-      const { products } = await order.populate('products').execPopulate();
+      const order = new Order(args, { cameras: args.Camera});
+      const { cameras } = await order.populate('cameras').execPopulate();
       const line_items = [];
       const url = new URL(context.headers.referer).origin;
 
-      for (let i = 0; i < products.length; i++) {
+      for (let i = 0; i < cameras.length; i++) {
         // generate product id
-        const product = await stripe.products.create({
-          name: products[i].name,
-          images: [`${url}/images/${products[i].image}`]
+        const camera = await stripe.cameras.create({
+          brand: cameras[i].brand,
+          model: cameras[i].model,
+          images: [`${url}/images/${cameras[i].image}`]
         });
 
         // generate price id using the product id
         const price = await stripe.prices.create({
-          product: product.id,
-          unit_amount: products[i].price * 100,
+          camera: camera.id,
+          unit_amount: cameras[i].price * 100,
           currency: 'usd',
         });
 
@@ -51,18 +52,10 @@ const resolvers = {
       return await Product.findById(_id)
     },
 
-    Lenses: async (parent, args) => {
-      return await Lens.findAll();
-    },
-
-    Lens: async (parent, { _id }) => {
-      return await Lens.findById(_id)
-    },
-
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: 'orders.products',
+          path: 'orders.cameras',
         });
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
         return user;

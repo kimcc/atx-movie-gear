@@ -12,13 +12,13 @@ export const LOGIN = gql`
 `;
 
 export const ADD_ORDER = gql`
-  mutation addOrder($products: [ID]!) {
-    addOrder(products: $products) {
+  mutation addOrder($cameras: [ID]!) {
+    addOrder(cameras: $cameras) {
       userId
       purchaseDate
       reservationDates
       projectType
-      products {
+      cameras {
         _id
         brand
         model
@@ -44,8 +44,8 @@ export const ADD_USER = gql`
       lastName: $lastName
       email: $email
       password: $password
-      $phoneNumber: String
-      $mailList: Boolean
+      phoneNumber: $phoneNumber
+      mailList: $mailList
     ) {
       token
       user {

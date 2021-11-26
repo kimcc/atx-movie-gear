@@ -17,14 +17,10 @@ const orderSchema = new Schema({
     type: String,
     required: true
   },
-  products:[
+  cameras:[
     {
       type: Schema.Types.ObjectId,
       ref: 'Camera'
-    },
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Lens'
     }
   ],
   projectType: {

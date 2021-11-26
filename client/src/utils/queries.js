@@ -16,23 +16,9 @@ export const QUERY_CAMERAS = gql`
   }
 `;
 
-export const QUERY_LENSES = gql`
-  query getLenses{
-    lenses{
-      Name
-      Type
-      brand
-      image
-      reserveDays
-      price
-      quantity
-    }
-  }
-`;
-
 export const QUERY_CHECKOUT = gql`
-  query getCheckout($products: [ID]!) {
-    checkout(products: $products) {
+  query getCheckout($cameras: [ID]!) {
+    checkout(cameras: $cameras) {
       session
     }
   }
@@ -50,7 +36,7 @@ export const QUERY_USER = gql`
         _id
         purchaseDate
         reservationDate
-        products {
+        cameras {
           _id
           brand
           model
