@@ -3,12 +3,12 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
   type Camera {
     _id: ID
-    modal: String
+    model: String
     brand: String
     resolution: String
+    description: String
     lensCombatibility: String
     image: String
-    reserveDays: Int
     price: Float
     quantity: Int
   }
@@ -43,8 +43,8 @@ const typeDefs = gql`
   }
 
   type Query {
-    Cameras: [Camera]
-    Camera(_id: ID!): Camera
+    cameras(model: String): [Camera]
+    camera(_id: ID!): Camera
     user: User
     order(_id: ID!): Order
     checkout(cameras: [ID]!): Checkout

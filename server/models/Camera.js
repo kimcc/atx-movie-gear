@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const cameraSchema = new Schema({
-  modal: {
+  model: {
     type: String,
     required: true,
     trim: true
@@ -18,6 +18,9 @@ const cameraSchema = new Schema({
     required: true,
     trim: true
   },
+  description: {
+    type: String
+  },
   lensCombatibility:{
     type: String,
     required: true,
@@ -25,11 +28,6 @@ const cameraSchema = new Schema({
   },
   image:{
     type: String,
-  },
-  reserveDays:{
-    type: Number,
-    min: 0,
-    default: 0
   },
   price: {
     type: Number,

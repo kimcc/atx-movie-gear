@@ -13,7 +13,6 @@ import {
   UPDATE_CAMERAS 
 } from "../utils/actions";
 import Cart from '../components/Cart';
-import { idbPromise } from "../utils/helpers";
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
@@ -36,16 +35,11 @@ function Detail() {
         _id: id,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
       });
-      idbPromise('cart', 'put', {
-        ...itemInCart,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
-      });
     }else{
       dispatch({
         type: ADD_TO_CART,
         product: { ...currentProduct, purchaseQuantity: 1 }
       });
-      idbPromise('cart', 'put', { ...currentProduct, purchaseQuantity: 1 });
     }
   };
 
@@ -54,8 +48,6 @@ function Detail() {
       type: REMOVE_FROM_CART,
       _id: currentProduct._id
     });
-
-    idbPromise('cart', 'delete', { ...currentProduct });
   };
 
   useEffect(() => {
@@ -65,17 +57,6 @@ function Detail() {
       dispatch({
         type: UPDATE_CAMERAS,
         products: data.products
-      });
-      data.products.forEach((product) =>{
-        idbPromise('products', 'put', product);
-      });
-    }
-    else if(!loading){
-      idbPromise('products', 'get').then((indexedProducts) =>{
-        dispatch({
-          type: UPDATE_CAMERAS,
-          products: indexedProducts
-        });
       });
     }
   }, [products, data, loading, dispatch,  id]);
@@ -87,6 +68,10 @@ function Detail() {
           <Link to="/">← Back to Products</Link>
 
           <h2>{currentProduct.brand + " "+ currentProduct.model}</h2>
+
+          <p>{currentProduct.resolution}</p>
+
+          <p>{currentProduct.description}</p>
 
           <p>
             <strong>Price:</strong>${currentProduct.price}{' '}

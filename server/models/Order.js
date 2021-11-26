@@ -4,16 +4,11 @@ const { Schema } = mongoose;
 
 
 const orderSchema = new Schema({
-  User: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
-  },
   purchaseDate: {
     type: Date,
     default: Date.now
   },
-  reservationDate: {
+  reservationDates: {
     type: String,
     required: true
   },

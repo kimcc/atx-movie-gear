@@ -44,12 +44,12 @@ const resolvers = {
       return { session: session.id };
     },
 
-    Cameras: async (parent, args) => {
-      return await Camera.findAll();
+    cameras: async (parent, args) => {
+      return await Camera.find();
     },
 
-    Camera: async (parent, { _id }) => {
-      return await Product.findById(_id)
+    camera: async (parent, { _id }) => {
+      return await Camera.findById(_id)
     },
 
     user: async (parent, args, context) => {

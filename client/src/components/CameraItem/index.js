@@ -1,19 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { idbPromise } from "../../utils/helpers";
 import { useStoreContext } from '../../utils/GlobalState';
 import { ADD_TO_CART, UPDATE_CART_DAYS} from '../../utils/actions';
 
-function ProductItem(item) {
+function CameraItem(item) {
   const [state, dispatch] = useStoreContext();
 
   const {
     image,
     brand,
     model,
+    resolution,
     _id,
-    price,
-    reserveDays
+    price
   } = item;
 
   const { cart } = state;
@@ -29,27 +28,24 @@ function ProductItem(item) {
         _id: _id,
         reserveDays: parseInt(itemInCart.reserveDays) + 1
       });
-      idbPromise('cart', 'put', {
-        ...itemInCart,
-        reserveDays: parseInt(itemInCart.reserveDays) + 1
-      });
+      
     }else{
       dispatch({
         type: ADD_TO_CART,
-        product: { ...item, reserveDays: 1 }
+        camera: { ...item, reserveDays: 1 }
       });
-      idbPromise('cart', 'put', { ...item, reserveDays: 1 });
     }
   }
 
   return (
     <div className="card px-1 py-1">
-      <Link to={`/products/${_id}`}>
+      <Link to={`/cameras/${_id}`}>
         <img
           alt={model}
           src={`/images/${image}`}
         />
         <p>{brand + " " + model}</p>
+        <p>{resolution}</p>
       </Link>
       <div>
         <span>${price}</span>
@@ -59,4 +55,4 @@ function ProductItem(item) {
   );
 }
 
-export default ProductItem;
+export default CameraItem;

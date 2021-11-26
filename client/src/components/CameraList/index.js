@@ -7,11 +7,9 @@ import spinner from '../../assets/spinner.gif';
 
 import { useStoreContext } from '../../utils/GlobalState';
 import { UPDATE_CAMERAS } from '../../utils/actions';
-import { idbPromise } from "../../utils/helpers";
 
-function ProductList() {
+function CameraList() {
   const [state, dispatch] = useStoreContext();
-  const { currentCategory} = state;
   const { loading, data } = useQuery(QUERY_CAMERAS);
 
   useEffect(() => {
@@ -21,29 +19,11 @@ function ProductList() {
         cameras: data.cameras
       });
 
-      data.cameras.forEach((camera)=> {
-        idbPromise('cameras', "put", camera);
-      });
-    }else if (!loading){
-      // since we're offline, get all of the data from the `cameras` store
-      idbPromise('cameras', 'get').then((cameras) => {
-        // use retrieved data to set global state for offline browsing
-        dispatch({
-          type: UPDATE_CAMERAS,
-          cameras: cameras
-        });
-      });
     }
   }, [data, loading, dispatch]);
 
   function filtercameras() {
-    if (!currentCategory) {
-      return state.cameras;
-    }
-
-    return state.cameras.filter(
-      (product) => product.category._id === currentCategory
-    );
+    return state.cameras;
   }
 
   return (
@@ -51,15 +31,16 @@ function ProductList() {
       <h2>Our cameras:</h2>
       {state.cameras.length ? (
         <div className="flex-row">
-          {filtercameras().map((product) => (
+          {filtercameras().map((camera) => (
             <CameraItem
-              key={product._id}
-              _id={product._id}
-              image={product.image}
-              brand={product.brand}
-              model={product.model}
-              price={product.price}
-              quantity={product.quantity}
+              key={camera._id}
+              _id={camera._id}
+              image={camera.image}
+              brand={camera.brand}
+              model={camera.model}
+              resolution={camera.resolution}
+              price={camera.price}
+              reserveDays={camera.reserveDays}
             />
           ))}
         </div>
@@ -71,4 +52,4 @@ function ProductList() {
   );
 }
 
-export default ProductList;
+export default CameraList;

@@ -1,10 +1,10 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_CAMERAS = gql`
-  query getCameras {
+  query{
     cameras{
       _id
-      modal
+      model
       brand
       resolution
       lensCombatibility
