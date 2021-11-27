@@ -18,11 +18,11 @@ function Detail() {
   const [state, dispatch] = useStoreContext();
   const { id } = useParams();
 
-  const [currentProduct, setCurrentProduct] = useState({});
+  const [currentCamera, setCurrentCamera] = useState({});
 
   const { loading, data } = useQuery(QUERY_CAMERAS);
 
-  const { products, cart } = state;
+  const { cameras, cart } = state;
 
   const addToCart = () => {
     // find the cart item with the matching id
@@ -33,12 +33,12 @@ function Detail() {
       dispatch({
         type: UPDATE_CART_DAYS,
         _id: id,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+        reserveDays: parseInt(itemInCart.reserveDays) + 1
       });
     }else{
       dispatch({
         type: ADD_TO_CART,
-        product: { ...currentProduct, purchaseQuantity: 1 }
+        camera: { ...currentCamera, reserveDays: 1 }
       });
     }
   };
@@ -46,38 +46,38 @@ function Detail() {
   const removeFromCart = () => {
     dispatch({
       type: REMOVE_FROM_CART,
-      _id: currentProduct._id
+      _id: currentCamera._id
     });
   };
 
   useEffect(() => {
-    if (products.length) {
-      setCurrentProduct(products.find((product) => product._id === id));
+    if (cameras.length) {
+      setCurrentCamera(cameras.find((camera) => camera._id === id));
     }else if(data){
       dispatch({
         type: UPDATE_CAMERAS,
-        products: data.products
+        cameras: data.cameras
       });
     }
-  }, [products, data, loading, dispatch,  id]);
+  }, [cameras, data, loading, dispatch,  id]);
 
   return (
     <>
-      {currentProduct ? (
+      {currentCamera ? (
         <div className="container my-1">
-          <Link to="/">← Back to Products</Link>
+          <Link to="/">← Back to Cameras</Link>
 
-          <h2>{currentProduct.brand + " "+ currentProduct.model}</h2>
+          <h2>{currentCamera.brand + " "+ currentCamera.model}</h2>
 
-          <p>{currentProduct.resolution}</p>
+          <p>{currentCamera.resolution}</p>
 
-          <p>{currentProduct.description}</p>
+          <p>{currentCamera.description}</p>
 
           <p>
-            <strong>Price:</strong>${currentProduct.price}{' '}
+            <strong>Price:</strong>${currentCamera.price}{' '}
             <button onClick={addToCart}>Add to Cart</button>
             <button
-              disabled={!cart.find(p => p._id === currentProduct._id)}
+              disabled={!cart.find(p => p._id === currentCamera._id)}
               onClick={removeFromCart}
             >
               Remove from Cart
@@ -85,8 +85,8 @@ function Detail() {
           </p>
 
           <img
-            src={`/images/${currentProduct.image}`}
-            alt={currentProduct.model}
+            src={`/images/${currentCamera.image}`}
+            alt={currentCamera.model}
           />
         </div>
       ) : null}

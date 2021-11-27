@@ -6,22 +6,22 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 const resolvers = {
   Query: {  
     checkout: async (parent, args, context) =>{
-      const order = new Order(args, { cameras: args.Camera});
+      const order = new Order({ cameras: args.cameras});
       const { cameras } = await order.populate('cameras').execPopulate();
       const line_items = [];
       const url = new URL(context.headers.referer).origin;
 
       for (let i = 0; i < cameras.length; i++) {
         // generate product id
-        const camera = await stripe.cameras.create({
-          brand: cameras[i].brand,
-          model: cameras[i].model,
+        const product = await stripe.products.create({
+          name: cameras[i].model +" " +cameras[i].brand,
+          description: cameras[i].description,
           images: [`${url}/images/${cameras[i].image}`]
         });
 
         // generate price id using the product id
         const price = await stripe.prices.create({
-          camera: camera.id,
+          product: product.id,
           unit_amount: cameras[i].price * 100,
           currency: 'usd',
         });
@@ -29,7 +29,7 @@ const resolvers = {
         // add price id to the line items array
         line_items.push({
           price: price.id,
-          reserveDays: 1
+          quantity: 1
         });
       }
 
@@ -44,7 +44,7 @@ const resolvers = {
       return { session: session.id };
     },
 
-    cameras: async (parent, args) => {
+    cameras: async () => {
       return await Camera.find();
     },
 
@@ -95,6 +95,11 @@ const resolvers = {
       }
 
       throw new AuthenticationError('Not logged in');
+    },
+    updateCamera: async (parent, { _id, quantity }) => {
+      const decrement = Math.abs(quantity) * -1;
+
+      return await Camera.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });

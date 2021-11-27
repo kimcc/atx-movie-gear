@@ -14,7 +14,6 @@ export const LOGIN = gql`
 export const ADD_ORDER = gql`
   mutation addOrder($cameras: [ID]!) {
     addOrder(cameras: $cameras) {
-      userId
       purchaseDate
       reservationDates
       projectType
@@ -23,7 +22,7 @@ export const ADD_ORDER = gql`
         brand
         model
         price
-        reserveDays
+        quantity
         image
       }
     }

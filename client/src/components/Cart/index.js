@@ -3,16 +3,15 @@ import CartItem from '../CartItem';
 import { useLazyQuery } from '@apollo/client';
 import Auth from '../../utils/auth';
 import { useStoreContext } from '../../utils/GlobalState'
-import { TOGGLE_CART } from '../../utils/actions';
+import { TOGGLE_CART} from '../../utils/actions';
 import { QUERY_CHECKOUT } from '../../utils/queries';
-//import { loadStripe } from '@stripe/stripe-js';
-//const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
-
-
+import { loadStripe } from '@stripe/stripe-js';
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
   const [state, dispatch]= useStoreContext();
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+
 
   function toggleCart(){
     dispatch({ type: TOGGLE_CART});
@@ -21,29 +20,29 @@ const Cart = () => {
   function calculateTotal() {
     let sum = 0;
     state.cart.forEach(item => {
-      sum += item.price * item.purchaseQuantity;
+      sum += item.price * item.reserveDays;
     });
     return sum.toFixed(2);
   }
 
-  // useEffect(() => {
-  //   if(data){
-  //     stripePromise.then((res)=>{
-  //       res.redirectToCheckout({ sessionId: data.checkout.session })
-  //     });
-  //   }
-  // }, [data]);
+  useEffect(() => {
+    if (data) {
+      stripePromise.then((res) => {
+        res.redirectToCheckout({ sessionId: data.checkout.session })
+      })
+    }
+  }, [data]);
 
   function submitCheckout(){
-    const cameraIds = [];
+    const productIds = [];
 
     getCheckout({
-      varibles: { camera: cameraIds }
+      variables: { cameras: productIds }
     });
 
     state.cart.forEach((item)=> {
-      for(let i = 0; i< item.purchaseQuantity; i++){
-        cameraIds.push(item._id);
+      for(let i = 0; i< item.reserveDays; i++){
+        productIds.push(item._id);
       }
     });
   }

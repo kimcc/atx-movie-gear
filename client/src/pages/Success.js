@@ -1,18 +1,19 @@
 import React, { useEffect } from 'react';
+import { useStoreContext } from '../utils/GlobalState';
 import { useMutation } from '@apollo/client';
 import { ADD_ORDER } from '../utils/mutations';
 
 function Success() {
   const [addOrder] = useMutation(ADD_ORDER);
+  const [{cart}, dispatch] = useStoreContext();
 
   useEffect(() => {
     async function saveOrder() {
-      const products = cart.map(item => item._id);
+      const cameras = cart.map(item => item._id);
 
-      if (products.length) {
-        const { data } = await addOrder({ variables: { products } });
-        const productData = data.addOrder.products;
-      
+      if (cameras.length) {
+        const { data } = await addOrder({ variables: { cameras } });
+        const cameraData = data.addOrder.cameras;
       }
 
       setTimeout(()=>{

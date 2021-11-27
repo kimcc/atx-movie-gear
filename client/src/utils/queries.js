@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_CAMERAS = gql`
-  query{
+{
     cameras{
       _id
       model

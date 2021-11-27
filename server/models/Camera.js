@@ -33,6 +33,11 @@ const cameraSchema = new Schema({
     type: Number,
     required: true,
   },
+  reserveDays:{
+    type: Number,
+    min: 0,
+    default: 0
+  },
   quantity:{
     type: Number,
     min: 0,
