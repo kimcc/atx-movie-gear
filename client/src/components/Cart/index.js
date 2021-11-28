@@ -19,6 +19,15 @@ const Cart = () => {
     dispatch({ type: TOGGLE_CART});
   }
 
+  function calculateItemNum() {
+    let itemNum = state.cart.length;
+    return (
+      <p>
+        {itemNum}
+      </p>
+    )
+  }
+
   function calculateTotal() {
     let sum = 0;
     state.cart.forEach(item => {
@@ -51,10 +60,15 @@ const Cart = () => {
 
   if (!state.cartOpen) {
     return (
-      <div className="cart-closed" onClick={toggleCart}>
-        <span
-          role="img"
-          aria-label="shopping cart"><AiOutlineShoppingCart /></span>
+      <div>
+        <div className="cart-item-num">
+          {calculateItemNum()}
+        </div>
+        <div className="cart-closed mx-3" onClick={toggleCart}>
+          <span role="img" aria-label="shopping cart">
+            <AiOutlineShoppingCart size={30}/>
+          </span>
+      </div>
       </div>
     );
   }
