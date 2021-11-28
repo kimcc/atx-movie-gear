@@ -1,6 +1,7 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Nav() {
 
@@ -27,6 +28,11 @@ function Nav() {
           <li className="mx-1">
             <Link to="/signup">
               Signup
+            </Link>
+          </li>
+          <li className="mx-1">
+            <Link to="/DummyProduct">
+              Dummy Product
             </Link>
           </li>
           <li className="mx-1">
