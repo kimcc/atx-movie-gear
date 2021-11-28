@@ -1,13 +1,37 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import logo from "../../assets/logo.png";
+import Cart from "../Cart";
 
 function Nav() {
 
-  function showNavigation() {
+  function showNavLinks() {
+    return (
+      <>
+        <li className="mx-1">
+          <Link to="/">
+            Home
+          </Link>
+        </li>
+        <li className="mx-1">
+          <Link to="/cameras">
+            Cameras
+          </Link>
+        </li>
+        <li className="mx-1">
+          <Link to="/about">
+            About
+          </Link>
+        </li>
+      </>
+    )
+  }
+
+  function showNavAuth() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
+        <>
           <li className="mx-1">
             <Link to="/orderHistory">
               Order History
@@ -19,11 +43,11 @@ function Nav() {
               Logout
             </a>
           </li>
-        </ul>
+        </>
       );
     } else {
       return (
-        <ul className="flex-row">
+        <>
           <li className="mx-1">
             <Link to="/signup">
               Signup
@@ -34,7 +58,7 @@ function Nav() {
               Login
             </Link>
           </li>
-        </ul>
+        </>
       );
     }
   }
@@ -43,13 +67,16 @@ function Nav() {
     <header className="flex-row px-1">
       <h1>
         <Link to="/">
-          <span role="img" aria-label="shopping bag">🛍️</span>
-          -Shop-Shop
+         <img src={logo} alt="logo"></img>
         </Link>
       </h1>
 
       <nav>
-        {showNavigation()}
+        <ul className="flex-row">
+          {showNavLinks()}
+          {showNavAuth()}
+          <Cart />
+        </ul>
       </nav>
     </header>
   );
