@@ -1,5 +1,23 @@
 
 
 body {
-    color: greenyellow;
+    color: rgb(2, 204, 177);
+}
+
+Card {
+    margin: 10px;
+    padding: 20px;
+    border-radius: 3px;
+}
+
+img.productImage {
+    justify-content: center;
+}
+
+button.btn.btn-dark {
+margin-bottom: 15px;
+}
+
+footer #price {
+    text-emphasis: strong;
 }
