@@ -28,7 +28,7 @@ function CameraList() {
 
   return (
     <div className="my-2">
-    <h2>Our cameras:</h2>
+    <h2>Cameras</h2>
       {state.cameras.length ? (
         <div className="flex-row">
           {filtercameras().map((camera) => (

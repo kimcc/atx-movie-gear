@@ -7,7 +7,7 @@ export const QUERY_CAMERAS = gql`
       model
       brand
       resolution
-      lensCombatibility
+      lensCompatibility
       image
       reserveDays
       price
