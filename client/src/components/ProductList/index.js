@@ -1,5 +1,4 @@
 import React from 'react';
-import { Slider } from 'rsuite';
 
 function ProductList() {
     const cameras = ([
@@ -32,7 +31,7 @@ function ProductList() {
         <div>
             <h1 className="heading">Cameras</h1>
                 <section className="flex-row">
-                    <Slider>Need Chocolate</Slider>
+
                 </section>
         </div>
     );
