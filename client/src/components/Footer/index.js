@@ -39,8 +39,8 @@ function Footer() {
                 Sign up for our mailing list
                 </h6>
               </label>
-              <input type="text" id="mailing-list" name="mailing-list"></input>
-              <input type="submit" value="Submit"></input>
+              <input type="text" id="mailing-list" name="mailing-list" placeholder="Email address"></input>
+              <input type="submit" value="Sign up"></input>
             </form>
           </div>
         </div>

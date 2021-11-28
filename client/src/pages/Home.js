@@ -1,6 +1,7 @@
 import React from "react";
 import CameraList from "../components/CameraList";
 import Hero from "../components/Hero";
+import Reservation from "../components/Reservation";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <div className="container">
         <CameraList />
       </div>
+      <Reservation />
     </>
   );
 };
