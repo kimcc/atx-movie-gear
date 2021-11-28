@@ -21,7 +21,7 @@ const cameraSchema = new Schema({
   description: {
     type: String
   },
-  lensCombatibility:{
+  lensCompatibility:{
     type: String,
     required: true,
     trim: true
