@@ -6,6 +6,8 @@ import { useStoreContext } from '../../utils/GlobalState'
 import { TOGGLE_CART} from '../../utils/actions';
 import { QUERY_CHECKOUT } from '../../utils/queries';
 import { loadStripe } from '@stripe/stripe-js';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
+
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
@@ -52,7 +54,7 @@ const Cart = () => {
       <div className="cart-closed" onClick={toggleCart}>
         <span
           role="img"
-          aria-label="shopping cart">🛒</span>
+          aria-label="shopping cart"><AiOutlineShoppingCart /></span>
       </div>
     );
   }
@@ -80,9 +82,6 @@ const Cart = () => {
         </div>
       ):(
         <h3>
-          <span role="img" aria-label="shocked">
-            😱
-          </span>
           You haven't added anything to your cart yet!
         </h3>
       )}

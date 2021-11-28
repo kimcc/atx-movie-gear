@@ -12,7 +12,7 @@ db.once('open', async () => {
       resolution: '5k',
       description:'blah blah blah',
       lensCombatibility: 'Cannon',
-      image: 'cookie-tin.jpg',
+      image: 'canon-c300-markiii.jpeg',
       price: 299,
       quantity: 1
     },
@@ -22,7 +22,7 @@ db.once('open', async () => {
       resolution: '5k',
       description:'blah blah blah',
       lensCombatibility: 'Sony',
-      image: 'cookie-tin.jpg',
+      image: 'sony-pxw-fx9-xdcam.jpeg',
       price: 299,
       quantity: 1
     }
