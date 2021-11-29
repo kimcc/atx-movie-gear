@@ -1,10 +1,13 @@
 import {
   UPDATE_CAMERAS,
+  UPDATE_RES_DATE,
+  UPDATE_PROJ_TYPE,
   ADD_TO_CART,
   REMOVE_FROM_CART,
   UPDATE_CART_DAYS,
   CLEAR_CART,
-  TOGGLE_CART
+  TOGGLE_CART,
+  ADD_MULTIPLE_TO_CART
 } from "./actions";
 
 import { useReducer } from 'react';
@@ -18,6 +21,18 @@ export const reducer = (state, action) => {
         cameras: [...action.cameras],
       };
 
+    case UPDATE_RES_DATE:
+      return{
+        ...state,
+        reservationDate: action.reservationDate
+      };
+
+    case UPDATE_PROJ_TYPE:
+      return{
+        ...state,
+        projectType: action.projectType
+      };
+
     case ADD_TO_CART:
       return{
         ...state,
@@ -25,9 +40,15 @@ export const reducer = (state, action) => {
         cart: [...state.cart, action.camera]
       };
 
+    case ADD_MULTIPLE_TO_CART:
+      return {
+        ...state,
+        cart: [...state.cart, ...action.cameras],
+      };
+
     case REMOVE_FROM_CART:
-      let newState = state.cart.filter(product => {
-        return product._id !== action._id;
+      let newState = state.cart.filter(camera => {
+        return camera._id !== action._id;
       });
 
       return {

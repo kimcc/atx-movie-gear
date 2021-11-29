@@ -36,12 +36,12 @@ export const QUERY_USER = gql`
         _id
         purchaseDate
         reservationDate
+        projectType
         cameras {
           _id
           brand
           model
           price
-          reserveDays
           image
         }
       }

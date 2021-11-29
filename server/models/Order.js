@@ -8,7 +8,7 @@ const orderSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  reservationDates: {
+  reservationDate: {
     type: String,
     required: true
   },
@@ -18,7 +18,7 @@ const orderSchema = new Schema({
       ref: 'Camera'
     }
   ],
-  projectType: {
+  projectType:{
     type: String,
     required: true,
     trim: true

@@ -8,8 +8,8 @@ const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useProductReducer({
     cameras: [],
     cart: [],
-    reservationDates: String,
-    projectType: String,
+    reservationDate: '',
+    projectType: '',
     cartOpen: false
   });
   // use this to confirm it works!

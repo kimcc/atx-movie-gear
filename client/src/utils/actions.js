@@ -5,3 +5,6 @@ export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 export const UPDATE_CART_DAYS = 'UPDATE_CART_DAYS';
 export const CLEAR_CART = 'CLEAR_CART';
 export const TOGGLE_CART = 'TOGGLE_CART';
+export const UPDATE_RES_DATE = 'UPDATE_RES_DATE';
+export const UPDATE_PROJ_TYPE = 'UPDATE_PROJ_TYPE';
+

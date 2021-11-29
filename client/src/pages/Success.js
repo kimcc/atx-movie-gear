@@ -1,20 +1,38 @@
 import React, { useEffect } from 'react';
-import { useStoreContext } from '../utils/GlobalState';
 import { useMutation } from '@apollo/client';
 import { ADD_ORDER } from '../utils/mutations';
+import { idbPromise } from '../utils/helpers';
 
 function Success() {
   const [addOrder] = useMutation(ADD_ORDER);
-  const [{cart}, dispatch] = useStoreContext();
 
   useEffect(() => {
     async function saveOrder() {
+      const cart = await idbPromise('cart', 'get')
       const cameras = cart.map(item => item._id);
+      let reservationDate = await idbPromise('reservationDate', 'get')
+      let projectType = await idbPromise('projectType', 'get');
+
+      console.log(reservationDate[0])
 
       if (cameras.length) {
-        const { data } = await addOrder({ variables: { cameras } });
+        const { data } = 
+        await addOrder(
+          { variables: {
+              cameras,
+              reservationDate: reservationDate.splice(-1).toString(),
+              projectType: projectType.splice(-1).toString() 
+            }
+          });
         const cameraData = data.addOrder.cameras;
+
+        cameraData.forEach((item) => {
+          idbPromise('cart', 'delete', item);
+        });
       }
+
+      idbPromise( 'reservationDate','deleteData');
+      idbPromise( 'projectType','deleteData');
 
       setTimeout(()=>{
         window.location.assign('/');
