@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button, Row, Col, Container } from 'react-bootstrap';
+import { Row, Container } from 'react-bootstrap';
 import '../styles.css';
 import CameraCard from '../components/CameraCard';
 import { useStoreContext } from "../utils/GlobalState";

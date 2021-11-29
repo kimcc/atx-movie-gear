@@ -42,22 +42,22 @@ function CameraCard(item) {
 
   return (
     <Col className="productCard">
-    <Link to={`/cameras/${_id}`}/>
-    <Card border="warning" style={{ width: '18rem' }}>
-      <div className="container">
-        <img className="productImage" justifyContent="center" style={{ width: '14rem' }} variant="top" src={`/images/${image}`} />
-      </div>
-      <Card.Body>
-        <Card.Title>{brand + " " + model}</Card.Title>
-        <Card.Text>
-          <subtitle>{resolution}</subtitle>
-          {description}
-        </Card.Text>
-        <Button onClick={addToCart} variant="dark">See Product Details</Button>
-        <footer id="price">${price}</footer>
-      </Card.Body>
-    </Card>
-  </Col>
+        <Link to={`/cameras/${_id}`}/>
+        <Card border="warning" style={{ width: '18rem' }}>
+          <div className="container">
+            <img alt={model} className="productImage" justifyContent="center" style={{ width: '14rem' }} variant="top" src={`/images/${image}`} />
+          </div>
+          <Card.Body>
+            <Card.Title>{brand + " " + model}</Card.Title>
+            <Card.Text>
+              <subtitle>{resolution}</subtitle>
+              {description}
+            </Card.Text>
+            <Button onClick={addToCart} variant="dark">See Product Details</Button>
+            <footer id="price">${price}</footer>
+          </Card.Body>
+        </Card>
+      </Col>
 
 
   //   <div className="card px-1 py-1">
