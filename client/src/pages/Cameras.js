@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button, Row, Col, Container } from 'react-bootstrap';
 import '../styles.css';
-import CameraItem from '../components/CameraItem';
+import CameraCard from '../components/CameraCard';
 import { useStoreContext } from "../utils/GlobalState";
 
 function Cameras(){
@@ -26,7 +26,7 @@ function Cameras(){
        <h1>Cameras</h1>
        <Container>
          <Row>
-          <CameraItem
+          <CameraCard
             _id={_id}
             key={key}
             image={image}

@@ -4,7 +4,8 @@ import { useStoreContext } from '../../utils/GlobalState';
 import { ADD_TO_CART, UPDATE_CART_DAYS} from '../../utils/actions';
 import { Card, Button, Row, Col, Container } from 'react-bootstrap';
 
-function CameraItem(item) {
+// A Camera Summary for use on the Camera Listings page
+function CameraCard(item) {
   const [state, dispatch] = useStoreContext();
 
   const {
@@ -76,4 +77,4 @@ function CameraItem(item) {
   );
 }
 
-export default CameraItem;
+export default CameraCard;

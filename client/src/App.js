@@ -19,6 +19,7 @@ import { StoreProvider } from "./utils/GlobalState";
 import OrderHistory from './pages/OrderHistory';
 import Success from './pages/Success';
 import Cameras from './pages/Cameras';
+import CameraItemDetail from './components/CameraItemDetail';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -52,7 +53,7 @@ function App() {
               <Route exact path="/Cameras" component={Cameras} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/orderHistory" component={OrderHistory} />
-              <Route exact path="/Cameras/:id" component={Detail} />
+              <Route exact path="/Cameras/:id" component={CameraItemDetail} />
               <Route exact path="/success" component={Success} />
               <Route component={NoMatch} />
             </Switch>

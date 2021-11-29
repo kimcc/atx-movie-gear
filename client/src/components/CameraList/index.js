@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 
-import CameraItem from '../CameraItem';
+import CameraCard from '../CameraCard';
 import { QUERY_CAMERAS } from '../../utils/queries';
 import spinner from '../../assets/spinner.gif';
 import { useStoreContext } from '../../utils/GlobalState';
@@ -32,7 +32,7 @@ function CameraList() {
       {state.cameras.length ? (
         <div className="flex-row">
           {filtercameras().map((camera) => (
-            <CameraItem
+            <CameraCard
               key={camera._id}
               _id={camera._id}
               image={camera.image}
