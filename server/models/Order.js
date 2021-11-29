@@ -18,7 +18,7 @@ const orderSchema = new Schema({
       ref: 'Camera'
     }
   ],
-  projectType:{
+  projectType: {
     type: String,
     required: true,
     trim: true

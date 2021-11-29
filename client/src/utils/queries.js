@@ -41,6 +41,7 @@ export const QUERY_USER = gql`
           _id
           brand
           model
+          reserveDays
           price
           image
         }
