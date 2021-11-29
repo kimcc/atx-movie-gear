@@ -2,8 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
-import { Container, Row, Col, ListGroup } from 'react-bootstrap';
 import { QUERY_CAMERAS } from '../../utils/queries';
 import AddToCart from '../AddToCart';
 
@@ -89,48 +87,63 @@ function CameraItemDetail(item) {
   return (
      <>
        {currentCamera ? (
-          <div className="container my-1">
+        <div className="my-3">
          <h1 className="productTitle">{currentCamera.brand + " " + currentCamera.model}</h1>
-           <Link to="/">← Back to Cameras</Link>
-             <Container>
-                 <Row>
-                  <Col className="productImage">
-                    <img src={`/images/${currentCamera.image}`}/>
-                  </Col>
+           <Link to="/cameras">← Back to Cameras</Link>
+             <div >
+                <section className="flex-row">
 
-                  <Col className="productDescription">
+          {/* Image Column */}
+                  <div className="flex-column productImage mx-4 px-4">
+                    <img src={`/images/${currentCamera.image}`}/>
+                  </div>
+
+          {/* Description Column */}
+                  <div className="flex-column productDescription mx-4 px-4">
+
+          {/* title and price  */}
                     <h2 className="productDescriptionHeading">
                       {currentCamera.brand + " " + currentCamera.model}</h2>
                         <div>
-                        <h3>${currentCamera.price}/day</h3>
+                        <h6>${currentCamera.price}/day</h6>
                         </div>
-                      <ListGroup variant="flush">
-                        <h4>Specs</h4>
-                        <ListGroup.Item>
-                          <h5 className="listTitle">Resolution: </h5>
-                          {currentCamera.resolution}
-                          </ListGroup.Item>
-                        <ListGroup.Item>
-                        <h5 className="listTitle">Lens Compatibility: </h5>
-                        {currentCamera.lensCompatibility}
-                        </ListGroup.Item>
-                        <ListGroup.Item>
-                          <h5 className="listTitle">About: </h5>
-                          {currentCamera.description}
-                        </ListGroup.Item>
-                        <ListGroup.Item>
-                          <h5 className="listTitle">In Stock: </h5>
-                          {currentCamera.quantity}
-                        </ListGroup.Item>
-                      </ListGroup>
-                  </Col>
 
-                  <Col className="reservationAndCart">
+          {/* Specs List */}
+                    <section className="detailsText">
+                      <h4>Specs</h4>
+                          <ul>
+
+                            <li className="my-2">
+                              <div className="listTitle">Resolution: </div>
+                              <div className="listElement">{currentCamera.resolution}</div>
+                            </li>
+
+                            <li className="my-2">
+                              <div className="listTitle">Lens Compatibility: </div>
+                              <div className="listElement">{currentCamera.lensCompatibility}</div>
+                            </li>
+
+                            <li className="my-2">
+                              <div className="listTitle">About: </div>
+                              <div className="listElement">{currentCamera.description}</div>
+                            </li>
+
+                            <li className="my-2">
+                              <div className="listTitle">In Stock: </div>
+                              <div className="listElement">{currentCamera.quantity}</div>
+
+                            </li>
+                        </ul>
+                      </section>
+                  </div>
+
+        {/* Add to Cart component */}
+                  <div className="flex-column reservationAndCart mx-1 px-1">
                     <AddToCart currentCamera={currentCamera} />
-                  </Col>
+                  </div>
 
-               </Row>
-            </Container>
+               </section>
+            </div>
           </div>
       ) : null}
      </>

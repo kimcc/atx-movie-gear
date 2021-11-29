@@ -2,25 +2,22 @@ import React, { useState } from "react";
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import addDays from "date-fns";
 
 
 const RSVPDatePicker = () => {
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
 
-  function onFormSubmit(e) {
-    e.preventDefault();
-    console.log(this.state.startDate)
-  }
+//   function onFormSubmit(e) {
+//     e.preventDefault();
+//     console.log(this.state.startDate)
+//   }
   return (
-    <form onSubmit={ onFormSubmit() }>
+    <form>
         <div className="form-group">
           <DatePicker
             locale="es"
             dateFormat="MM/dd/yyyy"
-            minDate={new Date()}
-            maxDate={addDays(new Date(), 30)}
             selectsRange={true}
             startDate={startDate}
             endDate={endDate}

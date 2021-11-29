@@ -96,7 +96,7 @@ button {
   font-size: 1rem;
   text-decoration: none;
   padding: 0.25rem 1rem;
-  border-radius: .5rem;
+  /* border-radius: .5rem; */
   border: none;
   outline: none;
   cursor: pointer;
@@ -273,6 +273,57 @@ input:focus {
 .text-block.text-block-left {
   text-align: left;
 }
+
+/* Camera Card */
+
+body {
+  color: rgb(43, 43, 43);
+}
+
+img.productImage {
+  justify-content: center;
+}
+
+/* need to get the text aligned left */
+.infoBox {
+  text-justify: left;
+}
+
+.cardFooter {
+  font-weight: bold;
+  color: var(--primary);
+  margin-top: 10px;
+}
+
+.cardFooter.hardText {
+  color: white;
+  margin-bottom: 5px;
+}
+
+.rentalPrice {
+  margin-bottom: 10px;
+  padding-bottom: 15px;
+}
+
+/* Camera Details Page */
+.space-evenly {
+  justify-content: space-evenly;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.listTitle {
+font-weight: bold;
+font-stretch: 1;
+}
+/*
+div.listElement {
+  font-st
+} */
 
 /* About */
 .hero-image-small {

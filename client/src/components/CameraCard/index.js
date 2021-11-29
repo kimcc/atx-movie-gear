@@ -1,13 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useStoreContext } from '../../utils/GlobalState';
-// import { ADD_TO_CART, UPDATE_CART_DAYS} from '../../utils/actions';
-import { Card, Button, Col } from 'react-bootstrap';
-import Detail from "../../pages/Detail";
 
-// A Camera Summary for use on the Camera Listings page
 function CameraCard(item) {
-  // const [state, dispatch] = useStoreContext();
 
   const {
     image,
@@ -19,65 +13,32 @@ function CameraCard(item) {
     price
   } = item;
 
-  // const { cart } = state;
-
-  // const addToCart = () => {
-  //   // find the cart item with the matching id
-  //   const itemInCart = cart.find((cartItem)=> cartItem._id === _id);
-
-  //   //if there was a match, call UPDATE with a new purchase reserveDays
-  //   if(itemInCart){
-  //     dispatch({
-  //       type: UPDATE_CART_DAYS,
-  //       _id: _id,
-  //       reserveDays: parseInt(itemInCart.reserveDays) + 1
-  //     });
-
-  //   }else{
-  //     dispatch({
-  //       type: ADD_TO_CART,
-  //       camera: { ...item, reserveDays: 1 }
-  //     });
-  //   }
-  // }
-
   return (
-    <Col className="productCard">
 
-        <Card border="warning" style={{ width: '18rem' }}>
+    <div className="flex-row space-between">
+    <section className="flex-column productCard" id={_id}>
+        <div className="card border-box" style={{ width: '18rem' }}>
           <div className="container">
-            <img alt={model} className="productImage" justifyContent="center" style={{ width: '14rem' }} variant="top" src={`/images/${image}`} />
+            <img alt={model} className=" my-2" justifyContent="center" style={{ width: '14rem' }} variant="top" src={`/images/${image}`} />
           </div>
-          <Card.Body>
-            <Card.Title>{brand + " " + model}</Card.Title>
-            <Card.Text>
-              <subtitle>{resolution}</subtitle>
+          <div>
+            <h6 className="my-2">{brand + " " + model}</h6>
+            <div className="text-block text-block-left mx-4">
+              <p>{resolution}</p>
               {description}
-            </Card.Text>
-            <Button variant="dark">
+            </div>
+            <button className="my-2">
             <Link to={`/cameras/${_id}`}>
               See Product Details</Link>
-            </Button>
-            <footer id="price">${price}</footer>
-          </Card.Body>
-        </Card>
-      </Col>
-
-
-  //   <div className="card px-1 py-1">
-
-  //       <img
-  //         alt={model}
-  //         src={`/images/${image}`}
-  //       />
-  //       <p>{brand + " " + model}</p>
-  //       <p>{resolution}</p>
-  //     </Link>
-  //     <div>
-  //       <span>${price}</span>
-  //     </div>
-  //     <button onClick ={addToCart}>Add to cart</button>
-  //   </div>
+            </button>
+            <footer className="cardFooter" id="price">
+              <div className="cardFooter hardText">Rentals beginning at</div>
+              <div className="rentalPrice">${price}/day</div>
+            </footer>
+          </div>
+        </div>
+      </section>
+  </div>
   );
 }
 

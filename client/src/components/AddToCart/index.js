@@ -11,6 +11,7 @@ import {
   ADD_TO_CART,
   UPDATE_CAMERAS
 } from "../../utils/actions";
+import RSVPDatePicker from "../DatePicker";
 
 function AddToCart(input) {
     const {
@@ -52,8 +53,8 @@ function AddToCart(input) {
     return(
         <div>
         <p>
-            <button onClick={addToCart}>Make a Reservation</button>
-            <button
+            <button className="my-2" onClick={addToCart}>Make a Reservation</button>
+            <button className="my-2"
                 disabled={!cart.find(p => p._id === currentCamera._id)}
                 onClick={removeFromCart}
             >

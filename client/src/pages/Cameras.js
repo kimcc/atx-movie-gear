@@ -24,7 +24,6 @@ function Cameras(){
 
   return (
     <div className="container my-1">
-    {/* //   <Link to="/detail">More</Link> */}
        <h1>Cameras</h1>
        <Container>
          <Row>
