@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useStoreContext } from '../../utils/GlobalState';
 import { ADD_TO_CART, UPDATE_CART_DAYS} from '../../utils/actions';
-import { Card, Button, Row, Col, Container } from 'react-bootstrap';
+import { Card, Button, Col } from 'react-bootstrap';
 
 // A Camera Summary for use on the Camera Listings page
 function CameraCard(item) {

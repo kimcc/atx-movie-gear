@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link, useParams } from 'react-router-dom';
 import spinner from '../../assets/spinner.gif';
 import Cart from "../Cart";

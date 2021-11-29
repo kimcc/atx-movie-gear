@@ -3,10 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import { Card, Button, Row, Col, Container, ListGroup, Item } from 'react-bootstrap';
-import CameraCard from '../CameraCard';
+import { Container, Row, Col, ListGroup } from 'react-bootstrap';
 import { QUERY_CAMERAS } from '../../utils/queries';
-import spinner from '../../assets/spinner.gif';
 import AddToCart from '../AddToCart';
 
 import { useStoreContext } from "../../utils/GlobalState";
@@ -16,7 +14,6 @@ import {
   ADD_TO_CART,
   UPDATE_CAMERAS
 } from "../../utils/actions";
-import Cart from '../Cart';
 
 function CameraItemDetail(item) {
   const [state, dispatch] = useStoreContext();
@@ -90,13 +87,13 @@ function CameraItemDetail(item) {
   }, [cameras, data, loading, dispatch,  id]);
 
   return (
-    <>
-      {currentCamera ? (
-        <div className="container my-1">
-          <h1 className="productTitle">{currentCamera.brand + " " + currentCamera.model}</h1>
-          <Link to="/">← Back to Cameras</Link>
-            <Container>
-                <Row>
+     <>
+       {currentCamera ? (
+          <div className="container my-1">
+         <h1 className="productTitle">{currentCamera.brand + " " + currentCamera.model}</h1>
+           <Link to="/">← Back to Cameras</Link>
+             <Container>
+                 <Row>
                   <Col className="productImage">
                     <img src={`/images/${currentCamera.image}`}/>
                   </Col>
@@ -104,7 +101,9 @@ function CameraItemDetail(item) {
                   <Col className="productDescription">
                     <h2 className="productDescriptionHeading">
                       {currentCamera.brand + " " + currentCamera.model}</h2>
-                      <div><h3>${currentCamera.price}</h3>/day</div>
+                        <div>
+                        <h3>${currentCamera.price}/day</h3>
+                        </div>
                       <ListGroup variant="flush">
                         <h4>Specs</h4>
                         <ListGroup.Item>
@@ -129,11 +128,12 @@ function CameraItemDetail(item) {
                   <Col className="reservationAndCart">
                     <AddToCart currentCamera={currentCamera} />
                   </Col>
-              </Row>
+
+               </Row>
             </Container>
           </div>
       ) : null}
-    </>
+     </>
   )
 }
 
