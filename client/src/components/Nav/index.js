@@ -2,7 +2,6 @@ import React from "react";
 import Auth from "../../utils/auth";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import Cart from "../Cart";
 
 function Nav() {
 
@@ -72,9 +71,8 @@ function Nav() {
         </NavLink>
         <div className="flex-row space-between">
             {showNavLinks()}
-          <div className="flex-row">
+          <div className="flex-row nav-auth-links">
             {showNavAuth()}
-            <Cart />
           </div>
         </div>
 

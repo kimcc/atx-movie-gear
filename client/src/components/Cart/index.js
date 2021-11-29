@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import CartItem from '../CartItem';
+import CartDrawer from '../CartDrawer';
 import { useLazyQuery } from '@apollo/client';
 import Auth from '../../utils/auth';
 import { useStoreContext } from '../../utils/GlobalState'
@@ -58,8 +59,19 @@ const Cart = () => {
     });
   }
 
+  let drawerClasses="cart";
+
   if (!state.cartOpen) {
+
     return (
+      <>
+      <div className={drawerClasses}>
+          <CartDrawer 
+          toggleCart={toggleCart} 
+          calculateTotal={calculateTotal}
+          submitCheckout={submitCheckout}
+          />
+        </div>
       <div>
         <div className="cart-item-num">
           {calculateItemNum()}
@@ -68,38 +80,22 @@ const Cart = () => {
           <span role="img" aria-label="shopping cart">
             <AiOutlineShoppingCart size={30}/>
           </span>
+        </div>
       </div>
-      </div>
+      </>
     );
+  } else {
+    drawerClasses="cart open";
   }
 
   return (
-    <div className="cart">
-      <div className="close" onClick={toggleCart}>[close]</div>
-      <h2>Shopping Cart</h2>
-      {state.cart.length ?(
-        <div>
-          {state.cart.map(item => (
-            <CartItem key={item._id} item={item} />
-          ))}
-          <div className="flex-row space-between">
-            <strong> Total: ${calculateTotal()}</strong>
-            {
-              Auth.loggedIn() ?
-                <button onClick={submitCheckout}>
-                  Checkout
-                </button>
-                :
-                <span>(log in to check out)</span>
-            }
-          </div>
-        </div>
-      ):(
-        <h3>
-          You haven't added anything to your cart yet!
-        </h3>
-      )}
-  </div>
+    <div className={drawerClasses}>
+      <CartDrawer 
+      toggleCart={toggleCart} 
+      calculateTotal={calculateTotal}
+      submitCheckout={submitCheckout}
+      />
+    </div>
   );
 };
 
