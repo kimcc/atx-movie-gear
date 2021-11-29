@@ -69,6 +69,7 @@ db.once('open', async () => {
     {
       model: 'FX9',
       brand: 'Sony',
+<<<<<<< HEAD
       resolution: '4k 60fps',
       description:'15-stops of dynamic range, Full-frame sensor, 10-bit 4:2:2',
       lensCompatibility: 'E-Mount',
@@ -144,6 +145,13 @@ db.once('open', async () => {
       lensCompatibility: 'EF-Mount',
       image: 'blackmagic-6k-pro.jpg',
       price: 85,
+=======
+      resolution: '5k',
+      description:'blah blah blah',
+      lensCombatibility: 'Sony',
+      image: 'sony-pxw-fx9-xdcam.jpeg',
+      price: 299,
+>>>>>>> kimberly/homepage
       quantity: 1
     }
 
