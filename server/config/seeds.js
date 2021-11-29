@@ -11,7 +11,7 @@ db.once('open', async () => {
       brand: 'Cannon',
       resolution: '5k',
       description:'blah blah blah',
-      lensCombatibility: 'Cannon',
+      lensCompatibility: 'Cannon',
       image: 'canon-c300-markiii.jpeg',
       price: 299,
       quantity: 1
@@ -21,12 +21,12 @@ db.once('open', async () => {
       brand: 'Sony',
       resolution: '5k',
       description:'blah blah blah',
-      lensCombatibility: 'Sony',
+      lensCompatibility: 'Sony',
       image: 'sony-pxw-fx9-xdcam.jpeg',
       price: 299,
       quantity: 1
     }
-    
+
   ]);
 
   console.log('cameras seeded');

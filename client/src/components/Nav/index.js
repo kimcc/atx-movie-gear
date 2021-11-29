@@ -55,10 +55,17 @@ function Nav() {
             </Link>
           </li>
           <li className="mx-1">
-            <Link to="/DummyProduct">
-              Dummy Product
+            <Link to="/Cameras">
+              Cameras
             </Link>
           </li>
+
+          <li className="mx-1">
+            <Link to="/Cameras/:1">
+              Camera Details
+            </Link>
+          </li>
+
           <li className="mx-1">
             <Link to="/login">
               Login

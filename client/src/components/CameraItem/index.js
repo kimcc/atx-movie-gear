@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useStoreContext } from '../../utils/GlobalState';
 import { ADD_TO_CART, UPDATE_CART_DAYS} from '../../utils/actions';
+import { Card, Button, Row, Col, Container } from 'react-bootstrap';
 
 function CameraItem(item) {
   const [state, dispatch] = useStoreContext();
@@ -29,7 +30,7 @@ function CameraItem(item) {
         _id: _id,
         reserveDays: parseInt(itemInCart.reserveDays) + 1
       });
-      
+
     }else{
       dispatch({
         type: ADD_TO_CART,
@@ -39,20 +40,39 @@ function CameraItem(item) {
   }
 
   return (
-    <div className="card px-1 py-1">
-      <Link to={`/cameras/${_id}`}>
-        <img
-          alt={model}
-          src={`/images/${image}`}
-        />
-        <p>{brand + " " + model}</p>
-        <p>{resolution}</p>
-      </Link>
-      <div>
-        <span>${price}</span>
+    <Col className="productCard">
+    <Link to={`/cameras/${_id}`}/>
+    <Card border="warning" style={{ width: '18rem' }}>
+      <div className="container">
+        <img className="productImage" justifyContent="center" style={{ width: '14rem' }} variant="top" src={`/images/${image}`} />
       </div>
-      <button onClick ={addToCart}>Add to cart</button>
-    </div>
+      <Card.Body>
+        <Card.Title>{brand + " " + model}</Card.Title>
+        <Card.Text>
+          <subtitle>{resolution}</subtitle>
+          {description}
+        </Card.Text>
+        <Button onClick={addToCart} variant="dark">See Product Details</Button>
+        <footer id="price">${price}</footer>
+      </Card.Body>
+    </Card>
+  </Col>
+
+
+  //   <div className="card px-1 py-1">
+
+  //       <img
+  //         alt={model}
+  //         src={`/images/${image}`}
+  //       />
+  //       <p>{brand + " " + model}</p>
+  //       <p>{resolution}</p>
+  //     </Link>
+  //     <div>
+  //       <span>${price}</span>
+  //     </div>
+  //     <button onClick ={addToCart}>Add to cart</button>
+  //   </div>
   );
 }
 
