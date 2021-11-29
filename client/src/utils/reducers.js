@@ -1,7 +1,5 @@
 import {
   UPDATE_CAMERAS,
-  UPDATE_RES_DATE,
-  UPDATE_PROJ_TYPE,
   ADD_TO_CART,
   REMOVE_FROM_CART,
   UPDATE_CART_DAYS,
@@ -19,18 +17,6 @@ export const reducer = (state, action) => {
       return {
         ...state,
         cameras: [...action.cameras],
-      };
-
-    case UPDATE_RES_DATE:
-      return{
-        ...state,
-        reservationDate: action.reservationDate
-      };
-
-    case UPDATE_PROJ_TYPE:
-      return{
-        ...state,
-        projectType: action.projectType
       };
 
     case ADD_TO_CART:

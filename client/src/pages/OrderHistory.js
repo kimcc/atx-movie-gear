@@ -41,7 +41,7 @@ function OrderHistory() {
                         <p>{brand+ " " + model +" reserved day"}</p>
                       </Link>
                       <div>
-                        <span>${price}</span>
+                        <span>${price}" per day</span>
                       </div>
                     </div>
                   ))}
