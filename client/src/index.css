@@ -3,7 +3,7 @@
   --primary: #F4CE10;
   --primary-light: #FFFADF;
   --secondary: #866103;
-  --medium: #757575;
+  --medium: #404040;
   --light: #ffffff;
   --error: rgb(228, 46, 1);
   --spacing-one: calc(1rem * 0.5);
@@ -55,11 +55,14 @@ h3 {
 }
 
 h4 {
-  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
 }
 
 h5 {
-  font-size: 1.25rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
   margin: 0 0 0.5rem 0;
 }
 
@@ -133,6 +136,46 @@ input {
 input:focus {
   border: 1px solid var(--primary);
   box-shadow: 0 0 .25rem rgba(0, 0, 0, .5);
+}
+
+/* Date picker */
+.DateInput {
+  background-color: var(--dark);
+  width: initial;
+}
+
+.DateRangePickerInput {
+  border-radius: 0px;
+  border: none;
+  background-color: var(--medium);
+}
+
+.DateRangePickerInput_arrow_svg {
+  fill: rgba(255, 255, 255, 0.7);
+}
+
+/* Dropdown */
+#dropdown-basic-button {
+  width: 100%;
+  text-align: left;
+  border-radius: 0;
+  background-color: var(--medium);
+  border: none;
+  box-shadow: none;
+}
+
+#dropdown-basic-button:hover {
+  opacity: 1;
+}
+
+.dropdown-toggle::after {
+  position: absolute;
+  right: 10px;
+  top: 18px;
+}
+
+.btn-primary:focus, .btn:focus {
+  box-shadow: none;
 }
 
 .container {
@@ -338,7 +381,7 @@ nav > div {
   top: 0;
   right: 0;
   z-index: 999;
-  background: rgba(16, 16, 16, 0.9);
+  background: rgba(16, 16, 16, 1);
   transform: translateX(100%);
   transition: transform 0.3s;
   padding: 24px;
@@ -349,8 +392,23 @@ nav > div {
   flex-grow: 1;
 }
 
+.cart-price h5, .cart-price p {
+  display: inline;
+}
+
 .cart.open {
   transform: translateX(0);
+  box-shadow: 0 -15px 5px 5px rgba(0, 0, 0, 1);
+}
+
+.cart img {
+  width: 100px;
+  margin-right: 16px;
+}
+
+.cart-remove {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .cart-item-num {
@@ -370,6 +428,18 @@ nav > div {
   text-align: center;
   font-size: 1rem;
   margin-top: -1px
+}
+
+.cart-backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.2);
+  z-index: 100;
+  top: 0;
+  right: 0;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
 .cart-closed {

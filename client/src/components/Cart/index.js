@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import CartItem from '../CartItem';
 import CartDrawer from '../CartDrawer';
+import CartDrawerBackdrop from '../CartDrawerBackdrop';
 import { useLazyQuery } from '@apollo/client';
 import Auth from '../../utils/auth';
 import { useStoreContext } from '../../utils/GlobalState'
@@ -89,6 +90,7 @@ const Cart = () => {
   }
 
   return (
+    <>
     <div className={drawerClasses}>
       <CartDrawer 
       toggleCart={toggleCart} 
@@ -96,6 +98,10 @@ const Cart = () => {
       submitCheckout={submitCheckout}
       />
     </div>
+    <CartDrawerBackdrop 
+      toggleCart={toggleCart} 
+    />
+    </>
   );
 };
 

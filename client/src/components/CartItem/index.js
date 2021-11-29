@@ -36,24 +36,24 @@ const CartItem = ({ item }) => {
           src={`/images/${item.image}`}
           alt=""
         />
+        <div>
+          <p className="cart-remove" onClick={() => removeFromCart(item)}>Remove</p>
+        </div>
       </div>
       <div>
-        <div>{item.model}, ${item.price}</div>
+        <h4>{item.brand} {item.model}</h4>
+        <div className="cart-price">
+          <h5>${item.price}</h5>
+          <p> / day</p>
+        </div>
         <div>
-          <span>Qty:</span>
+          <span>Quantity </span>
           <input
             type="number"
             placeholder="1"
             value={item.reserveDays}
             onChange={onChange}
           />
-          <span
-            role="img"
-            aria-label="trash"
-            onClick={() => removeFromCart(item)}
-          >
-            🗑️
-          </span>
         </div>
       </div>
     </div>
