@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
+import { BsYoutube, BsInstagram } from "react-icons/bs";
 
 function Footer() {
 
@@ -51,20 +51,15 @@ function Footer() {
           Copyright © 2021 Austin Movie Gear
           </p>
           <div className="flex-row">
-            <div className="social-link">
-              <Link to="/">
-                <BsFacebook size={30}/>
-              </Link>
-            </div>
             <div className="social-link social-link-circle">
-              <Link to="/">
-                <BsInstagram size={20}/>
-              </Link>
+              <a href="https://www.instagram.com/austinmoviegear" target="_blank" rel="noreferrer noopener">
+                <BsInstagram size={18}/>
+              </a>
             </div>
-            <div className="social-link social-link-circle">
-              <Link to="/">
-                <BsTwitter size={20}/>
-              </Link>
+            <div className="social-link social-link-circle youtube">
+              <a href="https://www.youtube.com/channel/UC-Z0emm3kROvxj7byrIvDCw" target="_blank" rel="noreferrer noopener">
+                <BsYoutube size={20}/>
+              </a>
             </div>
           </div>
         </div>
