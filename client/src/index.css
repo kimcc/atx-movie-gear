@@ -1,7 +1,9 @@
 :root {
   --dark: #101010;
   --primary: #F4CE10;
+  --primary-light: #FFFADF;
   --secondary: #866103;
+  --medium: #757575;
   --light: #ffffff;
   --error: rgb(228, 46, 1);
   --spacing-one: calc(1rem * 0.5);
@@ -248,9 +250,11 @@ input:focus {
   max-width: 400px;
 }
 
+.hero-text a:hover {
+  color: var(--light);
+}
+
 .hero-text svg {
-  position: relative;
-  top: 4px;
   margin-left: 4px;
   color: var(--primary);
 }
@@ -263,7 +267,21 @@ input:focus {
 .text-block {
   text-align: center;
   max-width: 700px;
-  margin: 40px auto;
+  margin: 56px auto;
+}
+
+.text-block.text-block-left {
+  text-align: left;
+}
+
+/* About */
+.hero-image-small {
+  background-image: url("assets/hero-home.jpg");
+  height: 280px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 /* Navbar */
@@ -280,9 +298,11 @@ nav a {
   opacity: 0.75;
   transition: all 0.15s;
   display: inline-block;
+  margin-top: 21px;
 }
 
 nav a:hover {
+  color: var(--light);
   opacity: 1;
   text-decoration: none;
   transition: all 0.15s;
@@ -292,14 +312,45 @@ nav > div {
   width: 100%;
 }
 
+.nav-auth-links {
+  margin-right: 96px;
+}
+
 .logo {
-  transform: translateY(-20%);
+  transform: translateY(-37%);
   display: inline-block;
 }
 
 .active {
   color: var(--primary);
   opacity: 1;
+}
+
+.active:hover {
+  color: var(--primary);
+}
+
+/* Cart */
+.cart {
+  color: var(--light);
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(16, 16, 16, 0.9);
+  transform: translateX(100%);
+  transition: transform 0.3s;
+  padding: 24px;
+}
+
+.cart h2 {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.cart.open {
+  transform: translateX(0);
 }
 
 .cart-item-num {
@@ -309,8 +360,8 @@ nav > div {
   height: 18px;
   font-family: 'Bebas Neue', sans-serif;
   position: absolute;
-  right: 30px;
-  top: 8px;
+  right: 50px;
+  top: 14px;
   border-radius: 50px;
   z-index: 99;
 }
@@ -322,6 +373,58 @@ nav > div {
 }
 
 .cart-closed {
+  position: absolute;
+  right: 32px;
+  top: 0;
+  margin-top: 6px;
+  color: var(--light);
+  cursor: pointer;
+  height: 40px;
+}
+
+.cart-closed span {
+  display: block;
+  height: 58px;
+  width: 40px;
+  cursor: pointer;
+}
+
+.cart-closed svg {
+  position: relative;
+  top: 14px;
+}
+
+.close {
+  cursor: pointer;
+}
+
+/* Reservations */
+.reservation {
+  background-color: var(--primary-light);
+  padding: 1px 0 56px 0;
+}
+
+.reservation-block:not(:last-child) {
+  margin-right: 1.5rem;
+}
+
+.reservation-step {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  background-color: var(--primary);
+  font-weight: 600;
+  font-size: 14px;
+  padding-top: 5px;
+}
+
+.footnote {
+  font-size: 12px;
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark);
   color: var(--light);
   cursor: pointer;
 }
@@ -336,11 +439,14 @@ footer {
   background-color: var(--dark);
   color: var(--light);
   padding-top: 32px;
-
 }
 
 footer p {
   margin-bottom: 0.5rem;
+}
+
+footer label {
+  display: block;
 }
 
 .footer-row {
@@ -350,6 +456,32 @@ footer p {
 
 .footer-row.footer-row-top {
   border-bottom: 1px solid rgba(193, 193, 193, 0.5);
+}
+
+input {
+  border-radius: 0;
+}
+
+input[type="text"] {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  padding: 8px 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--light);
+}
+
+input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input[type="submit"] {
+  background-color: var(--primary);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 8px 18px;
+  border: none;
 }
 
 .social-link {
@@ -371,7 +503,7 @@ footer p {
 .social-link.social-link-circle svg {
   color: var(--dark);
   position: relative;
-  top: 4px;
+  top: 2px;
 }
 
 @media screen and (max-width: 768px) {

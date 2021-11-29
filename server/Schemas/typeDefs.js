@@ -16,10 +16,8 @@ const typeDefs = gql`
 
   type Order {
     _id: ID
-    User: [User]
     purchaseDate: String
-    reservationDates: String
-    reserveDays: Int
+    reservationDate: String
     cameras:[Camera]
     projectType: String
   }
@@ -53,7 +51,7 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!, phoneNumber: String, mailList: Boolean): Auth
-    addOrder(products: ID!): Order
+    addOrder(cameras: [ID]!, reservationDate: String!, projectType: String!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String, phoneNumber: String, mailList: Boolean): User
     updateCamera(_id: ID, quantity: Int!): Camera
     login(email: String!, password: String!): Auth

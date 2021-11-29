@@ -12,10 +12,10 @@ export const LOGIN = gql`
 `;
 
 export const ADD_ORDER = gql`
-  mutation addOrder($cameras: [ID]!) {
-    addOrder(cameras: $cameras) {
+  mutation addOrder($cameras: [ID]!, $reservationDate: String!, $projectType: String!) {
+    addOrder(cameras: $cameras, reservationDate: $reservationDate, projectType: $projectType) {
       purchaseDate
-      reservationDates
+      reservationDate
       projectType
       cameras {
         _id
