@@ -4,7 +4,8 @@ import CartDrawer from '../CartDrawer';
 import { useLazyQuery } from '@apollo/client';
 import Auth from '../../utils/auth';
 import { useStoreContext } from '../../utils/GlobalState'
-import { TOGGLE_CART} from '../../utils/actions';
+import { TOGGLE_CART, ADD_MULTIPLE_TO_CART} from '../../utils/actions';
+import { idbPromise } from "../../utils/helpers";
 import { QUERY_CHECKOUT } from '../../utils/queries';
 import { loadStripe } from '@stripe/stripe-js';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
@@ -15,6 +16,16 @@ const Cart = () => {
   const [state, dispatch]= useStoreContext();
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
+  useEffect(()=>{
+    async function getCart(){
+      const cart = await idbPromise('cart', 'get');
+      dispatch({ type: ADD_MULTIPLE_TO_CART, cameras: [...cart]});
+    };
+
+    if(!state.cart.length){
+      getCart();
+    }
+  }, [state.cart.length, dispatch]);
 
   function toggleCart(){
     dispatch({ type: TOGGLE_CART});

@@ -4,7 +4,8 @@ import {
   REMOVE_FROM_CART,
   UPDATE_CART_DAYS,
   CLEAR_CART,
-  TOGGLE_CART
+  TOGGLE_CART,
+  ADD_MULTIPLE_TO_CART
 } from "./actions";
 
 import { useReducer } from 'react';
@@ -25,9 +26,15 @@ export const reducer = (state, action) => {
         cart: [...state.cart, action.camera]
       };
 
+    case ADD_MULTIPLE_TO_CART:
+      return {
+        ...state,
+        cart: [...state.cart, ...action.cameras],
+      };
+
     case REMOVE_FROM_CART:
-      let newState = state.cart.filter(product => {
-        return product._id !== action._id;
+      let newState = state.cart.filter(camera => {
+        return camera._id !== action._id;
       });
 
       return {

@@ -13,6 +13,7 @@ import {
   UPDATE_CAMERAS 
 } from "../utils/actions";
 import Cart from '../components/Cart';
+import { idbPromise } from "../utils/helpers";
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
@@ -35,11 +36,16 @@ function Detail() {
         _id: id,
         reserveDays: parseInt(itemInCart.reserveDays) + 1
       });
+      idbPromise('cart', 'put', {
+        ...itemInCart,
+        reserveDays: parseInt(itemInCart.reserveDays) + 1
+      });
     }else{
       dispatch({
         type: ADD_TO_CART,
         camera: { ...currentCamera, reserveDays: 1 }
       });
+      idbPromise('cart', 'put', { ...currentCamera, reserveDays: 1  });
     }
   };
 
@@ -48,6 +54,8 @@ function Detail() {
       type: REMOVE_FROM_CART,
       _id: currentCamera._id
     });
+
+    idbPromise('cart', 'delete', { ...currentCamera});
   };
 
   useEffect(() => {
@@ -57,6 +65,9 @@ function Detail() {
       dispatch({
         type: UPDATE_CAMERAS,
         cameras: data.cameras
+      });
+      data.cameras.forEach((camera) =>{
+        idbPromise('cameras', 'put', camera);
       });
     }
   }, [cameras, data, loading, dispatch,  id]);

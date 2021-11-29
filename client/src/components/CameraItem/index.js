@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useStoreContext } from '../../utils/GlobalState';
 import { ADD_TO_CART, UPDATE_CART_DAYS} from '../../utils/actions';
+import { idbPromise } from "../../utils/helpers";
+
 
 function CameraItem(item) {
   const [state, dispatch] = useStoreContext();
@@ -29,12 +31,16 @@ function CameraItem(item) {
         _id: _id,
         reserveDays: parseInt(itemInCart.reserveDays) + 1
       });
-      
+      idbPromise('cart', 'put', {
+        ...itemInCart,
+        reserveDays: parseInt(itemInCart.reserveDays) + 1
+      });
     }else{
       dispatch({
         type: ADD_TO_CART,
         camera: { ...item, reserveDays: 1 }
       });
+      idbPromise('cart', 'put', { ...item, reserveDays: 1 });
     }
   }
 

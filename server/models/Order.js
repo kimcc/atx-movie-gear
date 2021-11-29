@@ -8,7 +8,7 @@ const orderSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  reservationDates: {
+  reservationDate: {
     type: String,
     required: true
   },

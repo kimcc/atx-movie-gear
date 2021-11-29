@@ -64,9 +64,14 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
-    order: async (parent, args, context) => {
-      return await Order.findAll();
+    order: async (parent, {_id}, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: 'orders.cameras',
+        });
 
+        return user.orders.id(_id);
+      }
     }
   },
 
