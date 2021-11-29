@@ -480,7 +480,11 @@ input[type="submit"] {
 .social-link.social-link-circle svg {
   color: var(--dark);
   position: relative;
-  top: 4px;
+  top: 6px;
+}
+
+.social-link.social-link-circle.youtube svg {
+  top: 5px;
 }
 
 @media screen and (max-width: 768px) {
