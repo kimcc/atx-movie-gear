@@ -56,7 +56,7 @@ function Footer() {
                 <BsInstagram size={18}/>
               </a>
             </div>
-            <div className="social-link social-link-circle youtube">
+            <div className="social-link social-link-circle">
               <a href="https://www.youtube.com/channel/UC-Z0emm3kROvxj7byrIvDCw" target="_blank" rel="noreferrer noopener">
                 <BsYoutube size={20}/>
               </a>
