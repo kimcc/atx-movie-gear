@@ -268,6 +268,20 @@ input:focus {
   margin: 56px auto;
 }
 
+.text-block.text-block-left {
+  text-align: left;
+}
+
+/* About */
+.hero-image-small {
+  background-image: url("assets/hero-home.jpg");
+  height: 280px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
 /* Navbar */
 header {
   height: 72px;
@@ -295,6 +309,10 @@ nav > div {
   width: 100%;
 }
 
+.nav-auth-links {
+  margin-right: 96px;
+}
+
 .logo {
   transform: translateY(-24%);
   display: inline-block;
@@ -306,9 +324,26 @@ nav > div {
 }
 
 /* Cart */
-
 .cart {
   color: var(--light);
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(16, 16, 16, 0.9);
+  transform: translateX(100%);
+  transition: transform 0.3s;
+  padding: 24px;
+}
+
+.cart h2 {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.cart.open {
+  transform: translateX(0);
 }
 
 .cart-item-num {
@@ -318,8 +353,8 @@ nav > div {
   height: 18px;
   font-family: 'Bebas Neue', sans-serif;
   position: absolute;
-  right: 30px;
-  top: 12px;
+  right: 55px;
+  top: 14px;
   border-radius: 50px;
   z-index: 99;
 }
@@ -331,13 +366,28 @@ nav > div {
 }
 
 .cart-closed {
+  position: absolute;
+  right: 32px;
+  top: 0;
   margin-top: 6px;
   color: var(--light);
+  cursor: pointer;
+  height: 40px;
+}
+
+.cart-closed span {
+  display: block;
+  height: 58px;
+  width: 40px;
+  cursor: pointer;
 }
 
 .cart-closed svg {
   position: relative; 
   top: 14px;
+}
+
+.close {
   cursor: pointer;
 }
 
@@ -394,6 +444,12 @@ input[type="text"] {
   font-size: 15px;
   padding: 8px 12px;
   border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--light);
+}
+
+input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 input[type="submit"] {
