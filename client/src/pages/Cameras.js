@@ -6,7 +6,8 @@ import { useStoreContext } from "../utils/GlobalState";
 
 function Cameras(){
 
-  const { model, brand, key, image, resolution, price, reserveDays, _id } = {
+  const { model, brand, key, image, resolution, price, reserveDays, _id } =
+    {
     "model": "myCam",
     "brand": "MyCanon",
     "key": "1",
@@ -16,6 +17,7 @@ function Cameras(){
     "reserveDays": "",
     "_id": "2"
   }
+
 
   const [state, dispatch] = useStoreContext();
 

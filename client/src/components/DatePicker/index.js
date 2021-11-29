@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import addDays from "date-fns";
-import e from "cors";
 
-registerLocale('es', es);
 
-function DatePicker() {
+const RSVPDatePicker = () => {
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
 
@@ -32,7 +30,8 @@ function DatePicker() {
             isClearable={true}
           />
         </div>
-      </form>
+    </form>
+
     );
     // <DatePicker
     //   locale="es"
@@ -46,4 +45,4 @@ function DatePicker() {
     // />
 };
 
-export default DatePicker;
+export default RSVPDatePicker;

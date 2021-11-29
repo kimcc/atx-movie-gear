@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useStoreContext } from '../../utils/GlobalState';
-import { ADD_TO_CART, UPDATE_CART_DAYS} from '../../utils/actions';
+// import { ADD_TO_CART, UPDATE_CART_DAYS} from '../../utils/actions';
 import { Card, Button, Col } from 'react-bootstrap';
+import Detail from "../../pages/Detail";
 
 // A Camera Summary for use on the Camera Listings page
 function CameraCard(item) {
-  const [state, dispatch] = useStoreContext();
+  // const [state, dispatch] = useStoreContext();
 
   const {
     image,
@@ -18,31 +19,31 @@ function CameraCard(item) {
     price
   } = item;
 
-  const { cart } = state;
+  // const { cart } = state;
 
-  const addToCart = () => {
-    // find the cart item with the matching id
-    const itemInCart = cart.find((cartItem)=> cartItem._id === _id);
+  // const addToCart = () => {
+  //   // find the cart item with the matching id
+  //   const itemInCart = cart.find((cartItem)=> cartItem._id === _id);
 
-    //if there was a match, call UPDATE with a new purchase reserveDays
-    if(itemInCart){
-      dispatch({
-        type: UPDATE_CART_DAYS,
-        _id: _id,
-        reserveDays: parseInt(itemInCart.reserveDays) + 1
-      });
+  //   //if there was a match, call UPDATE with a new purchase reserveDays
+  //   if(itemInCart){
+  //     dispatch({
+  //       type: UPDATE_CART_DAYS,
+  //       _id: _id,
+  //       reserveDays: parseInt(itemInCart.reserveDays) + 1
+  //     });
 
-    }else{
-      dispatch({
-        type: ADD_TO_CART,
-        camera: { ...item, reserveDays: 1 }
-      });
-    }
-  }
+  //   }else{
+  //     dispatch({
+  //       type: ADD_TO_CART,
+  //       camera: { ...item, reserveDays: 1 }
+  //     });
+  //   }
+  // }
 
   return (
     <Col className="productCard">
-        <Link to={`/cameras/${_id}`}/>
+
         <Card border="warning" style={{ width: '18rem' }}>
           <div className="container">
             <img alt={model} className="productImage" justifyContent="center" style={{ width: '14rem' }} variant="top" src={`/images/${image}`} />
@@ -53,7 +54,10 @@ function CameraCard(item) {
               <subtitle>{resolution}</subtitle>
               {description}
             </Card.Text>
-            <Button onClick={addToCart} variant="dark">See Product Details</Button>
+            <Button variant="dark">
+            <Link to={`/cameras/${_id}`}>
+              See Product Details</Link>
+            </Button>
             <footer id="price">${price}</footer>
           </Card.Body>
         </Card>
