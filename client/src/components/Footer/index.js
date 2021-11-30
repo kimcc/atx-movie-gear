@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { BsYoutube, BsInstagram } from "react-icons/bs";
 
 function Footer() {
@@ -34,7 +33,7 @@ function Footer() {
           </div>
           <div>
             <form>
-              <label for="mailing-list">
+              <label htmlFor="mailing-list">
                 <h6>
                 Sign up for our mailing list
                 </h6>

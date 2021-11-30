@@ -36,29 +36,30 @@ const CartItem = ({ item }) => {
 
   return (
     <div className="flex-row">
-      <div>
+      <div className="flex-column">
         <img
           src={`/images/${item.image}`}
           alt=""
         />
+        <div className="py-1">
+          <p className="cart-remove" onClick={() => removeFromCart(item)}>Remove</p>
+        </div>
       </div>
-      <div>
-        <div>{item.model}, ${item.price}</div>
-        <div>
-          <span>Qty:</span>
+      <div className="flex-column" style={{flexGrow:"1"}}>
+        <h4>{item.brand} {item.model}</h4>
+        <div className="cart-price">
+          <h5>${item.price}</h5>
+          <p> / day</p>
+        </div>
+        <div className="flex-row" style={{alignItems: "center"}}>
+          <p>Quantity </p>
           <input
             type="number"
             placeholder="1"
             value={item.reserveDays}
             onChange={onChange}
+            style={{marginLeft: "8px", width: "100%"}}
           />
-          <span
-            role="img"
-            aria-label="trash"
-            onClick={() => removeFromCart(item)}
-          >
-            🗑️
-          </span>
         </div>
       </div>
     </div>
