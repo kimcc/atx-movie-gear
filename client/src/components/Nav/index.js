@@ -30,7 +30,7 @@ function Nav() {
   function showNavAuth() {
     if (Auth.loggedIn()) {
       return (
-        <ul>
+        <ul className="flex-row">
           <li className="mx-3">
             <NavLink to="/orderHistory" activeClassName="active">
               Order History
