@@ -6,10 +6,11 @@ import { BsXLg } from "react-icons/bs";
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
 import "react-dates/lib/css/_datepicker.css";
+import { idbPromise } from "../../utils/helpers";
 
 function CartDrawer(props) {
 
-  const [state, dispatch]= useStoreContext();
+  const [state]= useStoreContext();
 
   // For the date picker
   const [startDate, setStartDate] = useState();
@@ -25,7 +26,7 @@ function CartDrawer(props) {
           <BsXLg />
         </div>
       </div>
-     
+    
       {state.cart.length ?(
         <div>
           {state.cart.map(item => (
@@ -43,12 +44,14 @@ function CartDrawer(props) {
                 onDatesChange={({ startDate, endDate }) => {
                   setStartDate(startDate);
                   setEndDate(endDate);
+                  console.log(`${startDate}-${endDate}`)
+                  idbPromise('reservationDate', "put",`PickUp:${startDate} DropOff:${endDate}`)
                 }}
                 focusedInput={focusedInput}
                 onFocusChange={(focusedInput) => setFocusedInput(focusedInput)}
                 startDatePlaceholderText="Pickup date"
                 endDatePlaceholderText="Dropoff date"
-                numberOfMonths="1"
+                numberOfMonths= {1}
               />
 
             </div>
@@ -56,10 +59,14 @@ function CartDrawer(props) {
 
           <div className="flex-column" style={{marginTop: "24px"}}>
 
-            <label for="project">
+            <label htmlFor="project">
               <h6>Project type</h6>
             </label>
-            <select required name="project" id="project">
+            <select required name="project" id="project"
+              onChange={
+                (e)=>idbPromise('projectType', "put", e.target.value)
+              }
+            >
               <option value="" selected disabled hidden>Choose a project</option>
               <option value="documentary">Documentary</option>
               <option value="narrative-film">Narrative film</option>
@@ -80,7 +87,7 @@ function CartDrawer(props) {
               <h5>Total</h5>
               <h3> ${props.calculateTotal}</h3>
             </div>
-           
+          
             {
               Auth.loggedIn() ?
                 <button onClick={props.submitCheckout}>

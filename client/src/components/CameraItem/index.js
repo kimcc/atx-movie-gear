@@ -13,7 +13,6 @@ function CameraItem(item) {
     brand,
     model,
     resolution,
-    description,
     _id,
     price
   } = item;

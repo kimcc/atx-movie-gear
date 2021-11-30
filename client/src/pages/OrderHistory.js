@@ -28,7 +28,9 @@ function OrderHistory() {
                   Date: {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
                 </h3>
                 <h4>
-                  Date of Pick Up/drop off: {order.reservationDate}
+                  Date of Pick Up/drop off:
+                  <br/>
+                  {order.reservationDate}
                 </h4>
                 <h4>
                   project Type: {order.projectType}
