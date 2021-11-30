@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button} from 'react-bootstrap';
 
 function ProductList() {
     const cameras = ([
@@ -31,7 +32,7 @@ function ProductList() {
         <div>
             <h1 className="heading">Cameras</h1>
                 <section className="flex-row">
-
+                    <Button></Button>
                 </section>
         </div>
     );

@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
-import CartItem from '../CartItem';
 import CartDrawer from '../CartDrawer';
+import CartDrawerBackdrop from '../CartDrawerBackdrop';
 import { useLazyQuery } from '@apollo/client';
-import Auth from '../../utils/auth';
 import { useStoreContext } from '../../utils/GlobalState'
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART} from '../../utils/actions';
 import { idbPromise } from "../../utils/helpers";
@@ -31,8 +30,13 @@ const Cart = () => {
     dispatch({ type: TOGGLE_CART});
   }
 
+  // Calculate number of items in cart to display in the bubble
   function calculateItemNum() {
-    let itemNum = state.cart.length;
+    // let itemNum = state.cart.length;
+    let itemNum = 0;
+    state.cart.forEach(item => {
+      itemNum += item.reserveDays;
+    });
     return (
       <p>
         {itemNum}
@@ -71,15 +75,15 @@ const Cart = () => {
   }
 
   let drawerClasses="cart";
+  let total = calculateTotal();
 
   if (!state.cartOpen) {
-
     return (
       <>
       <div className={drawerClasses}>
           <CartDrawer 
           toggleCart={toggleCart} 
-          calculateTotal={calculateTotal}
+          calculateTotal={total}
           submitCheckout={submitCheckout}
           />
         </div>
@@ -100,13 +104,18 @@ const Cart = () => {
   }
 
   return (
+    <>
     <div className={drawerClasses}>
       <CartDrawer 
       toggleCart={toggleCart} 
-      calculateTotal={calculateTotal}
+      calculateTotal={total}
       submitCheckout={submitCheckout}
       />
     </div>
+    <CartDrawerBackdrop 
+      toggleCart={toggleCart} 
+    />
+    </>
   );
 };
 

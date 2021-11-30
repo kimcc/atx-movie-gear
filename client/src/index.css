@@ -3,7 +3,7 @@
   --primary: #F4CE10;
   --primary-light: #FFFADF;
   --secondary: #866103;
-  --medium: #757575;
+  --medium: #404040;
   --light: #ffffff;
   --error: rgb(228, 46, 1);
   --spacing-one: calc(1rem * 0.5);
@@ -19,6 +19,7 @@
 html,
 body {
   min-height: 100%;
+  font-size: 15px;
 }
 
 body {
@@ -51,15 +52,20 @@ h2 {
 }
 
 h3 {
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 1.75rem;
+  color: var(--primary)
 }
 
 h4 {
-  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
 }
 
 h5 {
-  font-size: 1.25rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
   margin: 0 0 0.5rem 0;
 }
 
@@ -94,9 +100,10 @@ header a {
 
 button {
   font-size: 1rem;
+  font-weight: 600;
   text-decoration: none;
-  padding: 0.25rem 1rem;
-  border-radius: .5rem;
+  padding: 10px;
+  border-radius: 0rem;
   border: none;
   outline: none;
   cursor: pointer;
@@ -123,16 +130,87 @@ span[role="img"] {
 
 input {
   font-size: 1rem;
-  padding: 0.25rem;
+  padding: 10px;
   border: 1px solid var(--dark);
   outline: none;
   border-radius: 3px;
   transition: box-shadow 0.2s;
+  background-color: var(--medium);
+  color: var(--light);
 }
 
 input:focus {
   border: 1px solid var(--primary);
   box-shadow: 0 0 .25rem rgba(0, 0, 0, .5);
+}
+
+input[type="submit"] {
+  color: var(--dark);
+}
+
+/* Date picker */
+.DateInput {
+  background-color: var(--dark);
+  width: initial;
+}
+
+.DateRangePicker_picker {
+  background-color: transparent;
+}
+
+.DayPicker_focusRegion {
+  margin-bottom: 24px;
+}
+
+.DayPicker_transitionContainer, 
+.DayPicker_transitionContainer_1, 
+.DayPicker_transitionContainer__horizontal, 
+.DayPicker_transitionContainer__horizontal_2 {
+  height: 300px !important;
+  margin-top: -1px;
+}
+
+.DateRangePickerInput {
+  border-radius: 0px;
+  border: none;
+  background-color: var(--medium);
+}
+
+.DateInput_input {
+  border: 1px solid transparent;
+}
+
+.DateInput_input:focus {
+  border: 1px solid var(--primary);
+}
+
+.DateRangePickerInput_arrow_svg {
+  fill: rgba(255, 255, 255, 0.7);
+}
+
+.DayPickerKeyboardShortcuts_panel {
+  color: var(--dark);
+}
+
+/* Dropdown */
+select {
+  padding: 10px 10px; 
+  border: none;
+  background-color: var(--medium);
+  color: var(--light);
+  font-size: 15px;
+}
+
+select:invalid {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+select:focus {
+  outline: 1px solid var(--primary);
+}
+
+.btn-primary:focus, .btn:focus {
+  box-shadow: none;
 }
 
 .container {
@@ -274,6 +352,73 @@ input:focus {
   text-align: left;
 }
 
+/* Camera Card */
+
+body {
+  color: rgb(43, 43, 43);
+}
+
+img.productImage {
+  justify-content: center;
+}
+
+/* need to get the text aligned left */
+
+.cardFooter {
+  font-weight: bold;
+  color: var(--primary);
+  margin-top: 10px;
+}
+
+.cardFooter.hardText {
+  color: white;
+  margin-bottom: 5px;
+}
+
+.rentalPrice {
+  margin-bottom: 10px;
+  padding-bottom: 15px;
+}
+
+/* Camera Details Page */
+.space-evenly {
+  justify-content: space-evenly;
+}
+
+h2.productDescriptionHeading {
+  margin-bottom: 10px;
+}
+
+ul.specs {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.listTitle {
+font-weight: bold;
+font-stretch: 1;
+}
+
+.truncate {
+  display: inline-block;
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.truncate + a {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: -1px;
+}
+
+a.readMore {
+  font-style: oblique;
+  color: var(--primary);
+}
+
 /* About */
 .hero-image-small {
   background-image: url("assets/hero-home.jpg");
@@ -330,6 +475,10 @@ nav > div {
   color: var(--primary);
 }
 
+li::marker {
+  color: transparent;
+}
+
 /* Cart */
 .cart {
   color: var(--light);
@@ -338,10 +487,9 @@ nav > div {
   top: 0;
   right: 0;
   z-index: 999;
-  background: rgba(16, 16, 16, 0.9);
+  background: rgba(16, 16, 16, 1);
   transform: translateX(100%);
   transition: transform 0.3s;
-  padding: 24px;
 }
 
 .cart h2 {
@@ -349,8 +497,29 @@ nav > div {
   flex-grow: 1;
 }
 
+.cart-price h5, .cart-price p {
+  display: inline;
+}
+
 .cart.open {
   transform: translateX(0);
+  box-shadow: 2px -15px 5px 1px rgba(0, 0, 0, 1);
+}
+
+.cart-container {
+  overflow: auto;
+    padding: 24px;
+    height: 100%;
+}
+
+.cart img {
+  width: 100px;
+  margin-right: 16px;
+}
+
+.cart-remove {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .cart-item-num {
@@ -372,6 +541,18 @@ nav > div {
   margin-top: -1px
 }
 
+.cart-backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.2);
+  z-index: 100;
+  top: 0;
+  right: 0;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
 .cart-closed {
   position: absolute;
   right: 32px;
@@ -390,7 +571,7 @@ nav > div {
 }
 
 .cart-closed svg {
-  position: relative; 
+  position: relative;
   top: 14px;
 }
 
@@ -426,6 +607,17 @@ nav > div {
 footer {
   background-color: var(--dark);
   color: var(--light);
+}
+
+.cart-closed svg {
+  position: relative;
+  top: 14px;
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark);
+  color: var(--light);
   padding-top: 32px;
 }
 
@@ -454,7 +646,7 @@ input[type="text"] {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   padding: 8px 12px;
-  border: none;
+  border: 1px solid transparent;
   background: rgba(255, 255, 255, 0.2);
   color: var(--light);
 }

@@ -147,7 +147,7 @@ db.once('open', async () => {
       quantity: 1
     }
 
-    
+
   ]);
 
   console.log('cameras seeded');
