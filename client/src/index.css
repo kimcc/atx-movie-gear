@@ -155,23 +155,13 @@ input:focus {
 }
 
 /* Dropdown */
-#dropdown-basic-button {
-  width: 100%;
-  text-align: left;
-  border-radius: 0;
-  background-color: var(--medium);
+select {
+  padding: 8px 0px; 
   border: none;
-  box-shadow: none;
 }
 
-#dropdown-basic-button:hover {
-  opacity: 1;
-}
-
-.dropdown-toggle::after {
-  position: absolute;
-  right: 10px;
-  top: 18px;
+select:focus {
+  outline: 1px solid var(--primary);
 }
 
 .btn-primary:focus, .btn:focus {

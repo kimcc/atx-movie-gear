@@ -21,8 +21,13 @@ const Cart = () => {
     dispatch({ type: TOGGLE_CART});
   }
 
+  // Calculate number of items in cart to display in the bubble
   function calculateItemNum() {
-    let itemNum = state.cart.length;
+    // let itemNum = state.cart.length;
+    let itemNum = 0;
+    state.cart.forEach(item => {
+      itemNum += item.reserveDays;
+    });
     return (
       <p>
         {itemNum}
@@ -61,15 +66,15 @@ const Cart = () => {
   }
 
   let drawerClasses="cart";
+  let total = calculateTotal();
 
   if (!state.cartOpen) {
-
     return (
       <>
       <div className={drawerClasses}>
           <CartDrawer 
           toggleCart={toggleCart} 
-          calculateTotal={calculateTotal}
+          calculateTotal={total}
           submitCheckout={submitCheckout}
           />
         </div>
@@ -94,7 +99,7 @@ const Cart = () => {
     <div className={drawerClasses}>
       <CartDrawer 
       toggleCart={toggleCart} 
-      calculateTotal={calculateTotal}
+      calculateTotal={total}
       submitCheckout={submitCheckout}
       />
     </div>

@@ -3,7 +3,6 @@ import CartItem from '../CartItem';
 import { useStoreContext } from '../../utils/GlobalState';
 import Auth from '../../utils/auth';
 import { BsXLg } from "react-icons/bs";
-import { DropdownButton, Dropdown } from 'react-bootstrap';
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
 import "react-dates/lib/css/_datepicker.css";
@@ -21,7 +20,7 @@ function CartDrawer(props) {
     <div>
       <div className="flex-row space-between">
         <h2>Shopping Cart</h2>
-        <div className="close" onClick={() => props.toggleCart()}>
+        <div className="close" onClick={props.toggleCart}>
           <BsXLg />
         </div>
       </div>
@@ -54,19 +53,23 @@ function CartDrawer(props) {
           </div>
 
           <div style={{marginTop: "24px"}}>
-          <h6>Project type</h6>
-          <DropdownButton id="dropdown-basic-button" title="Choose project type">
-            <Dropdown.Item href="#/action-1">Project 1</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Project 2</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Project 3</Dropdown.Item>
-          </DropdownButton>
+
+          <label for="project">
+            <h6>Project type</h6>
+          </label>
+            <select name="project" id="project">
+              <option value="project1">Project 1</option>
+              <option value="project2">Project 2</option>
+              <option value="project3">Project 3</option>
+              <option value="project4">Project 4</option>
+            </select>
           </div>
 
           <div className="flex-row space-between">
-            <strong> Total: ${() => props.calculateTotal()}</strong>
+            <strong> Total: ${props.calculateTotal}</strong>
             {
               Auth.loggedIn() ?
-                <button onClick={() => props.submitCheckout()}>
+                <button onClick={props.submitCheckout}>
                   Checkout
                 </button>
                 :
