@@ -31,28 +31,29 @@ const CartItem = ({ item }) => {
 
   return (
     <div className="flex-row">
-      <div>
+      <div className="flex-column">
         <img
           src={`/images/${item.image}`}
           alt=""
         />
-        <div>
+        <div className="py-1">
           <p className="cart-remove" onClick={() => removeFromCart(item)}>Remove</p>
         </div>
       </div>
-      <div>
+      <div className="flex-column" style={{flexGrow:"1"}}>
         <h4>{item.brand} {item.model}</h4>
         <div className="cart-price">
           <h5>${item.price}</h5>
           <p> / day</p>
         </div>
-        <div>
-          <span>Quantity </span>
+        <div className="flex-row" style={{alignItems: "center"}}>
+          <p>Quantity </p>
           <input
             type="number"
             placeholder="1"
             value={item.reserveDays}
             onChange={onChange}
+            style={{marginLeft: "8px", width: "100%"}}
           />
         </div>
       </div>

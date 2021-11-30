@@ -18,7 +18,7 @@ function CartDrawer(props) {
 
   return (
     <div>
-      <div className="flex-row space-between">
+      <div className="flex-row space-between" style={{marginBottom: "24px"}}>
         <h2>Shopping Cart</h2>
         <div className="close" onClick={props.toggleCart}>
           <BsXLg />
@@ -31,7 +31,7 @@ function CartDrawer(props) {
             <CartItem key={item._id} item={item} />
           ))}
 
-          <div className="flex-row">
+          <div className="flex-row" style={{marginTop: "16px"}}>
             <div className="flex-column">
               <h6>Pickup & dropoff dates</h6>
               <DateRangePicker
@@ -52,25 +52,37 @@ function CartDrawer(props) {
             </div>
           </div>
 
-          <div style={{marginTop: "24px"}}>
+          <div className="flex-column" style={{marginTop: "24px"}}>
 
-          <label for="project">
-            <h6>Project type</h6>
-          </label>
-            <select name="project" id="project">
-              <option value="project1">Project 1</option>
-              <option value="project2">Project 2</option>
-              <option value="project3">Project 3</option>
-              <option value="project4">Project 4</option>
+            <label for="project">
+              <h6>Project type</h6>
+            </label>
+            <select required name="project" id="project">
+              <option value="" selected disabled hidden>Choose a project</option>
+              <option value="documentary">Documentary</option>
+              <option value="narrative-film">Narrative film</option>
+              <option value="student-film">Student film</option>
+              <option value="music-video">Music video</option>
+              <option value="wedding">Wedding</option>
+              <option value="non-profit">Non-profit</option>
+              <option value="broadcast">Broadcast</option>
+              <option value="online-for-profit">Online for profit</option>
+              <option value="internal">Internal</option>
+              <option value="video-game">Video game</option>
+              <option value="social-media-only">Social media only</option>
             </select>
           </div>
 
-          <div className="flex-row space-between">
-            <strong> Total: ${props.calculateTotal}</strong>
+          <div className="flex-column space-between" style={{marginTop: "40px"}}>
+            <div className="flex-row space-between">
+              <h5>Total</h5>
+              <h3> ${props.calculateTotal}</h3>
+            </div>
+           
             {
               Auth.loggedIn() ?
                 <button onClick={props.submitCheckout}>
-                  Checkout
+                  Confirm reservation
                 </button>
                 :
                 <span>(log in to check out)</span>

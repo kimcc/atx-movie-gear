@@ -19,6 +19,7 @@
 html,
 body {
   min-height: 100%;
+  font-size: 15px;
 }
 
 body {
@@ -51,7 +52,9 @@ h2 {
 }
 
 h3 {
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 1.75rem;
+  color: var(--primary)
 }
 
 h4 {
@@ -61,7 +64,7 @@ h4 {
 
 h5 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 600;
   margin: 0 0 0.5rem 0;
 }
@@ -126,11 +129,13 @@ span[role="img"] {
 
 input {
   font-size: 1rem;
-  padding: 0.25rem;
+  padding: 10px;
   border: 1px solid var(--dark);
   outline: none;
   border-radius: 3px;
   transition: box-shadow 0.2s;
+  background-color: var(--medium);
+  color: var(--light);
 }
 
 input:focus {
@@ -150,14 +155,29 @@ input:focus {
   background-color: var(--medium);
 }
 
+.DateInput_input {
+  border: 1px solid transparent;
+}
+
+.DateInput_input:focus {
+  border: 1px solid var(--primary);
+}
+
 .DateRangePickerInput_arrow_svg {
   fill: rgba(255, 255, 255, 0.7);
 }
 
 /* Dropdown */
 select {
-  padding: 8px 0px; 
+  padding: 10px 10px; 
   border: none;
+  background-color: var(--medium);
+  color: var(--light);
+  font-size: 15px;
+}
+
+select:invalid {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 select:focus {
@@ -388,7 +408,8 @@ nav > div {
 
 .cart.open {
   transform: translateX(0);
-  box-shadow: 0 -15px 5px 5px rgba(0, 0, 0, 1);
+  box-shadow: 2px -15px 5px 1px rgba(0, 0, 0, 1);
+  overflow-y: scroll;
 }
 
 .cart img {
@@ -514,7 +535,7 @@ input[type="text"] {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   padding: 8px 12px;
-  border: none;
+  border: 1px solid transparent;
   background: rgba(255, 255, 255, 0.2);
   color: var(--light);
 }
