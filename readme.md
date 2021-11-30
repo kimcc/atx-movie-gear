@@ -55,9 +55,5 @@ Deployed to:
 - [@kimcc](https://github.com/kimcc)
 - [@Falciform-mv](https://github.com/Falciform-mv)
 
-  
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
 
   
