@@ -44,9 +44,11 @@ function CartDrawer(props) {
                 onDatesChange={({ startDate, endDate }) => {
                   setStartDate(startDate);
                   setEndDate(endDate);
-                  console.log(`${startDate}-${endDate}`)
-                  idbPromise('reservationDate', "put",`PickUp:${startDate} DropOff:${endDate}`)
+                  idbPromise('reservationDate', "put",
+                  `PickUp: ${new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(startDate)}`+ 
+                  ` DropOff: ${new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(endDate)}`)
                 }}
+                
                 focusedInput={focusedInput}
                 onFocusChange={(focusedInput) => setFocusedInput(focusedInput)}
                 startDatePlaceholderText="Pickup date"

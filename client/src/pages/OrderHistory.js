@@ -40,7 +40,7 @@ function OrderHistory() {
                     <div key={index} className="card px-1 py-1">
                       <Link to={`/cameras/${_id}`}>
                         <img alt={model} src={`/images/${image}`} />
-                        <p>{brand+ " " + model +" reserved day"}</p>
+                        <p>{brand+ " " + model}</p>
                       </Link>
                       <div>
                         <span>${price} per day</span>

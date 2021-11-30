@@ -34,9 +34,9 @@ function Success() {
       idbPromise( 'reservationDate','deleteData');
       idbPromise( 'projectType','deleteData');
 
-      setTimeout(()=>{
-        window.location.assign('/');
-      }, 3000);
+      // setTimeout(()=>{
+      //   window.location.assign('/');
+      // }, 3000);
     }
     saveOrder();
   }, [addOrder]);
