@@ -100,9 +100,10 @@ header a {
 
 button {
   font-size: 1rem;
+  font-weight: 600;
   text-decoration: none;
-  padding: 0.25rem 1rem;
-  border-radius: .5rem;
+  padding: 10px;
+  border-radius: 0rem;
   border: none;
   outline: none;
   cursor: pointer;
@@ -149,6 +150,22 @@ input:focus {
   width: initial;
 }
 
+.DateRangePicker_picker {
+  background-color: transparent;
+}
+
+.DayPicker_focusRegion {
+  margin-bottom: 24px;
+}
+
+.DayPicker_transitionContainer, 
+.DayPicker_transitionContainer_1, 
+.DayPicker_transitionContainer__horizontal, 
+.DayPicker_transitionContainer__horizontal_2 {
+  height: 300px !important;
+  margin-top: -1px;
+}
+
 .DateRangePickerInput {
   border-radius: 0px;
   border: none;
@@ -165,6 +182,10 @@ input:focus {
 
 .DateRangePickerInput_arrow_svg {
   fill: rgba(255, 255, 255, 0.7);
+}
+
+.DayPickerKeyboardShortcuts_panel {
+  color: var(--dark);
 }
 
 /* Dropdown */
@@ -394,7 +415,6 @@ nav > div {
   background: rgba(16, 16, 16, 1);
   transform: translateX(100%);
   transition: transform 0.3s;
-  padding: 24px;
 }
 
 .cart h2 {
@@ -409,7 +429,12 @@ nav > div {
 .cart.open {
   transform: translateX(0);
   box-shadow: 2px -15px 5px 1px rgba(0, 0, 0, 1);
-  overflow-y: scroll;
+}
+
+.cart-container {
+  overflow: auto;
+    padding: 24px;
+    height: 100%;
 }
 
 .cart img {
