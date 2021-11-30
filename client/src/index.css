@@ -475,6 +475,10 @@ nav > div {
   color: var(--primary);
 }
 
+li::marker {
+  color: transparent;
+}
+
 /* Cart */
 .cart {
   color: var(--light);
@@ -603,7 +607,6 @@ nav > div {
 footer {
   background-color: var(--dark);
   color: var(--light);
-  cursor: pointer;
 }
 
 .cart-closed svg {
