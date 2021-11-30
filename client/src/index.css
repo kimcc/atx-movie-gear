@@ -352,6 +352,73 @@ select:focus {
   text-align: left;
 }
 
+/* Camera Card */
+
+body {
+  color: rgb(43, 43, 43);
+}
+
+img.productImage {
+  justify-content: center;
+}
+
+/* need to get the text aligned left */
+
+.cardFooter {
+  font-weight: bold;
+  color: var(--primary);
+  margin-top: 10px;
+}
+
+.cardFooter.hardText {
+  color: white;
+  margin-bottom: 5px;
+}
+
+.rentalPrice {
+  margin-bottom: 10px;
+  padding-bottom: 15px;
+}
+
+/* Camera Details Page */
+.space-evenly {
+  justify-content: space-evenly;
+}
+
+h2.productDescriptionHeading {
+  margin-bottom: 10px;
+}
+
+ul.specs {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.listTitle {
+font-weight: bold;
+font-stretch: 1;
+}
+
+.truncate {
+  display: inline-block;
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.truncate + a {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: -1px;
+}
+
+a.readMore {
+  font-style: oblique;
+  color: var(--primary);
+}
+
 /* About */
 .hero-image-small {
   background-image: url("assets/hero-home.jpg");
@@ -500,7 +567,7 @@ nav > div {
 }
 
 .cart-closed svg {
-  position: relative; 
+  position: relative;
   top: 14px;
 }
 
@@ -530,6 +597,18 @@ nav > div {
 
 .footnote {
   font-size: 12px;
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark);
+  color: var(--light);
+  cursor: pointer;
+}
+
+.cart-closed svg {
+  position: relative;
+  top: 14px;
 }
 
 /* Footer */

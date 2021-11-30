@@ -7,7 +7,7 @@ const typeDefs = gql`
     brand: String
     resolution: String
     description: String
-    lensCombatibility: String
+    lensCompatibility: String
     image: String
     reserveDays: Int
     price: Float
