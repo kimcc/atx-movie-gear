@@ -105,7 +105,7 @@ function CameraItemDetail(item) {
                     <h2 className="productDescriptionHeading">
                       {currentCamera.brand + " " + currentCamera.model}</h2>
                         <div>
-                        <h6>${currentCamera.price}/day</h6>
+                        <h3>${currentCamera.price}/day</h3>
                         </div>
 
           {/* Specs List */}
@@ -124,12 +124,11 @@ function CameraItemDetail(item) {
                             </li>
 
 
-                          {/* <span className="truncate"> */}
                             <li className="my-2">
                               <div className="listTitle">About: </div>
-                              <div className="listElement">{currentCamera.description}</div>
+                              <div className="listElement">{currentCamera.description}
+                              </div>
                             </li>
-                          {/* </span><a className="readMore" href="#">[Read more]</a> */}
 
                             <li className="my-2">
                               <div className="listTitle">In Stock: </div>
@@ -137,12 +136,13 @@ function CameraItemDetail(item) {
 
                             </li>
                         </ul>
+                        <AddToCart currentCamera={currentCamera} />
                       </section>
                   </div>
 
         {/* Add to Cart component */}
                   <div className="flex-column reservationAndCart mx-1 px-1">
-                    <AddToCart currentCamera={currentCamera} />
+
                   </div>
 
                </section>

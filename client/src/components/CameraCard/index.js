@@ -15,9 +15,9 @@ function CameraCard(item) {
 
   return (
 
-    <div className="flex-row space-between">
+    <div className=" cameraCard ">
     <section className="flex-column productCard" id={_id}>
-        <div className="card border-box" style={{ width: '18rem' }}>
+        <div className="card" style={{ width: '18rem' }}>
           <div className="container">
             <img alt={model} className=" my-2" justifyContent="center" style={{ width: '14rem' }} variant="top" src={`/images/${image}`} />
           </div>

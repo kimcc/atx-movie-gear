@@ -23,7 +23,7 @@ function Cameras(){
 
 
   return (
-    <div className="container my-1">
+    <div className=" my-1">
        <h1>Cameras</h1>
        <Container>
          <Row>
