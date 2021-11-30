@@ -12,6 +12,7 @@ export const QUERY_CAMERAS = gql`
       reserveDays
       price
       quantity
+      description
     }
   }
 `;
