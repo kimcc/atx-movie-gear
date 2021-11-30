@@ -111,7 +111,7 @@ function CameraItemDetail(item) {
           {/* Specs List */}
                     <section className="detailsText">
                       <h4>Specs</h4>
-                          <ul>
+                          <ul className="specs">
 
                             <li className="my-2">
                               <div className="listTitle">Resolution: </div>
@@ -123,10 +123,13 @@ function CameraItemDetail(item) {
                               <div className="listElement">{currentCamera.lensCompatibility}</div>
                             </li>
 
+
+                          <span className="truncate">
                             <li className="my-2">
                               <div className="listTitle">About: </div>
                               <div className="listElement">{currentCamera.description}</div>
                             </li>
+                          </span><a className="readMore" href="#">[Read more]</a>
 
                             <li className="my-2">
                               <div className="listTitle">In Stock: </div>

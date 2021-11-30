@@ -23,7 +23,7 @@ function CameraCard(item) {
           </div>
           <div>
             <h6 className="my-2">{brand + " " + model}</h6>
-            <div className="text-block text-block-left mx-4">
+            <div className="my-2 mx-4">
               <p>{resolution}</p>
               {description}
             </div>

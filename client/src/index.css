@@ -285,9 +285,6 @@ img.productImage {
 }
 
 /* need to get the text aligned left */
-.infoBox {
-  text-justify: left;
-}
 
 .cardFooter {
   font-weight: bold;
@@ -310,7 +307,11 @@ img.productImage {
   justify-content: space-evenly;
 }
 
-ul {
+h2.productDescriptionHeading {
+  margin-bottom: 10px;
+}
+
+ul.specs {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -320,10 +321,25 @@ ul {
 font-weight: bold;
 font-stretch: 1;
 }
-/*
-div.listElement {
-  font-st
-} */
+
+.truncate {
+  display: inline-block;
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.truncate + a {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: -1px;
+}
+
+a.readMore {
+  font-style: oblique;
+  color: var(--primary);
+}
 
 /* About */
 .hero-image-small {
