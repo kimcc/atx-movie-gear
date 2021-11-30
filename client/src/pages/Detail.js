@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import CameraItemDetail from '../components/CameraItemDetail';
 
 import { QUERY_CAMERAS } from '../utils/queries';
 import spinner from '../assets/spinner.gif';
@@ -10,7 +11,7 @@ import {
   REMOVE_FROM_CART,
   UPDATE_CART_DAYS,
   ADD_TO_CART,
-  UPDATE_CAMERAS 
+  UPDATE_CAMERAS
 } from "../utils/actions";
 import Cart from '../components/Cart';
 import { idbPromise } from "../utils/helpers";
@@ -19,7 +20,8 @@ function Detail() {
   const [state, dispatch] = useStoreContext();
   const { id } = useParams();
 
-  const [currentCamera, setCurrentCamera] = useState({});
+  const [currentCamera, setCurrentCamera] = useState({
+});
 
   const { loading, data } = useQuery(QUERY_CAMERAS);
 
@@ -75,17 +77,19 @@ function Detail() {
   return (
     <>
       {currentCamera ? (
-        <div className="container my-1">
-          <Link to="/">← Back to Cameras</Link>
+        <div className="container space-between">
+          <CameraItemDetail
+            // _id={currentCamera._id}
+            // key={currentCamera.key}
+            // image={currentCamera.image}
+            // model={currentCamera.model}
+            // brand={currentCamera.brand}
+            // resolution={currentCamera.resolution}
+            // price={currentCamera.price}
+            // reserveDays={currentCamera.reserveDays}
+            />
 
-          <h2>{currentCamera.brand + " "+ currentCamera.model}</h2>
-
-          <p>{currentCamera.resolution}</p>
-
-          <p>{currentCamera.description}</p>
-
-          <p>
-            <strong>Price:</strong>${currentCamera.price}{' '}
+          {/* <p>
             <button onClick={addToCart}>Add to Cart</button>
             <button
               disabled={!cart.find(p => p._id === currentCamera._id)}
@@ -93,16 +97,12 @@ function Detail() {
             >
               Remove from Cart
             </button>
-          </p>
+          </p> */}
 
-          <img
-            src={`/images/${currentCamera.image}`}
-            alt={currentCamera.model}
-          />
+
         </div>
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}
-      <Cart/>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   ApolloClient,
   InMemoryCache,
@@ -20,6 +21,7 @@ import Footer from './components/Footer';
 import { StoreProvider } from "./utils/GlobalState";
 import OrderHistory from './pages/OrderHistory';
 import Success from './pages/Success';
+import Cameras from './pages/Cameras';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -52,6 +54,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/Cameras" component={Cameras} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/orderHistory" component={OrderHistory} />
               <Route exact path="/Cameras/:id" component={Detail} />
