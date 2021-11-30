@@ -1,21 +1,21 @@
 import React from 'react';
 import { Row, Container } from 'react-bootstrap';
 import '../styles.css';
-import CameraCard from '../components/CameraCard';
+import CameraList from '../components/CameraList';
 import { useStoreContext } from "../utils/GlobalState";
 
 function Cameras(){
 
   const { model, brand, key, image, resolution, price, reserveDays, _id } =
     {
-    "model": "myCam",
-    "brand": "MyCanon",
-    "key": "1",
-    "image": "canon_c200.jpeg",
-    "resolution": "4K",
-    "price": "95",
-    "reserveDays": "",
-    "_id": "2"
+    // "model": "myCam",
+    // "brand": "MyCanon",
+    // "key": "1",
+    // "image": "canon_c200.jpeg",
+    // "resolution": "4K",
+    // "price": "95",
+    // "reserveDays": "",
+    // "_id": "2"
   }
 
 
@@ -27,15 +27,8 @@ function Cameras(){
        <h1>Cameras</h1>
        <Container>
          <Row>
-          <CameraCard
-            _id={_id}
-            key={key}
-            image={image}
-            model={model}
-            brand={brand}
-            resolution={resolution}
-            price={price}
-            reserveDays={reserveDays} />
+          <CameraList />
+
         </Row>
       </Container>
     </div>

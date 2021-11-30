@@ -18,17 +18,17 @@ function CameraItemDetail(item) {
   const { id } = useParams();
 
   const [currentCamera, setCurrentCamera] = useState({
-    "model": "myCam",
-    "brand": "MyCanon",
-    "key": "1",
-    "image": "canon_c200.jpeg",
-    "resolution": "4K",
-    "price": "150",
-    "description": "tHIS IS THE CAMERA YOU WANT, OKAY????",
-    "lensCompatibility": "EF-Mount",
-    "quantity": "2",
-    "reserveDays": "",
-    "_id": "2"
+    // "model": "myCam",
+    // "brand": "MyCanon",
+    // "key": "1",
+    // "image": "canon_c200.jpeg",
+    // "resolution": "4K",
+    // "price": "150",
+    // "description": "tHIS IS THE CAMERA YOU WANT, OKAY????",
+    // "lensCompatibility": "EF-Mount",
+    // "quantity": "2",
+    // "reserveDays": "",
+    // "_id": "2"
   });
 
   const { loading, data } = useQuery(QUERY_CAMERAS);
@@ -124,12 +124,12 @@ function CameraItemDetail(item) {
                             </li>
 
 
-                          <span className="truncate">
+                          {/* <span className="truncate"> */}
                             <li className="my-2">
                               <div className="listTitle">About: </div>
                               <div className="listElement">{currentCamera.description}</div>
                             </li>
-                          </span><a className="readMore" href="#">[Read more]</a>
+                          {/* </span><a className="readMore" href="#">[Read more]</a> */}
 
                             <li className="my-2">
                               <div className="listTitle">In Stock: </div>

@@ -21,14 +21,7 @@ function Detail() {
   const { id } = useParams();
 
   const [currentCamera, setCurrentCamera] = useState({
-    "model": "myCam",
-"brand": "MyCanon",
-"key": "1",
-"image": "canon_c200.jpeg",
-"resolution": "4K",
-"price": "95",
-"reserveDays": "",
-"_id": "1"});
+});
 
   const { loading, data } = useQuery(QUERY_CAMERAS);
 
