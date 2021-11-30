@@ -1,66 +1,63 @@
-# ATX movie gear
 
-<img src="https://img.shields.io/badge/license-Unlicensed-blue" alt="Unlicensed">   
+# Austin Movie Gear
 
-## Elevator Pitch
-
-## Project Description
-
-
+A revitalized eCommerce store for camera equipment rentals. Located in North Austin, Austin Movie Gear was in need of a refresh to their website. They desired the ability to quickly allow current and potential customers to plan, budget, and build equipment rental orders right within the site. 
 ## Screenshots
 
+![App Screenshot](https://user-images.githubusercontent.com/85845397/144144580-5bbd827e-2da1-4a13-b26e-4bfd9e7492ad.png)
 
-## Table of Contents
-* [Installation](#Installation)
-* [Credits](#Credits)
-* [Technology Used](#TechnologyUsed)
-* [License](#License)
+![App Screenshot](https://user-images.githubusercontent.com/85845397/144144623-1e1e3ee1-3eed-41f4-b009-bc61ee1d6232.png)
 
-## Installation 
-Type “npm install” 
+![App Screenshot](https://user-images.githubusercontent.com/85845397/144144650-a4cb049f-db91-4564-96b6-410062500f09.png)
 
 
-## Credits
-Allen Harborth - Creating database, server and graphql setup 
- 
+  
+## Demo
 
-## Technology Used
-Javascript \
-React.js \
-Express.js \
-CSS\HTML \
-Node.js \
-MongoDB(NoSQL) \
-Mongoose \
-Stripe \
-graphql \
-jsonWebToken \
-apollo 
+[Walkthrough Demo](https://watch.screencastify.com/v/9TCmbGeUJ8AUz9MEHxoj)
 
-## License 
-<div style="height:300px; width:90%; overflow:auto;">
+  
+## Installation
 
-      This is free and unencumbered software released into the public domain.
+Install Austin Movie Gear with npm
+
+```bash
+  npm install
+```
     
-      Anyone is free to copy, modify, publish, use, compile, sell, or
-      distribute this software, either in source code form or as a compiled
-      binary, for any purpose, commercial or non-commercial, and by any
-      means.
-      
-      In jurisdictions that recognize copyright laws, the author or authors
-      of this software dedicate any and all copyright interest in the
-      software to the public domain. We make this dedication for the benefit
-      of the public at large and to the detriment of our heirs and
-      successors. We intend this dedication to be an overt act of
-      relinquishment in perpetuity of all present and future rights to this
-      software under copyright law.
-      
-      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-      EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-      MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-      IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-      OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-      ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-      OTHER DEALINGS IN THE SOFTWARE.
-  </div>
-For more information, please refer to https://unlicense.org
+## Deployment
+
+Deployed to:
+
+[Heroku](https://www.w3.org/Provider/Style/dummy.html)
+
+  
+## Tech Stack
+
+**Client:** React, Javascript
+
+**Server:** Node, Express, MongoDB, graphQL
+
+  
+## Features
+
+- All-New UI
+- Add camera equipment to Cart 
+- User authentication
+- Stripe integration
+- Responsive for mobile
+
+  
+## Authors
+
+- [@allenharborth9835](https://github.com/allenharborth9835)
+- [@itsmeadriana](https://github.com/itsmeadriana)
+- [@kimcc](https://github.com/kimcc)
+- [@Falciform-mv](https://github.com/Falciform-mv)
+
+  
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+  
