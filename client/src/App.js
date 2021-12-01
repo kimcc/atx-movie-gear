@@ -23,13 +23,15 @@ import OrderHistory from './pages/OrderHistory';
 import Success from './pages/Success';
 import Cameras from './pages/Cameras';
 
-let httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql'
-});
+let httpLink;
 
 if(process.env.NODE_ENV === 'production'){
   httpLink = createHttpLink({
     uri: '/graphql'
+  });
+}else{
+  httpLink = createHttpLink({
+    uri: 'http://localhost:3001/graphql'
   });
 }
 
