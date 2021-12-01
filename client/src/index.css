@@ -548,6 +548,8 @@ li::marker {
 .fixed-body {
   overflow: hidden;
   block-size: 100%;
+}
+
 /*  Login */
 form {
   display: flex;
