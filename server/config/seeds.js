@@ -165,8 +165,7 @@ db.once('open', async () => {
       {
         cameras: [cameras[0]._id, cameras[0]._id, cameras[1]._id],
         projectType: 'wedding',
-        reservationDates: 'firtsDate-lastDate',
-
+        reservationDate: 'firtsDate-lastDate',
       }
     ]
   });
