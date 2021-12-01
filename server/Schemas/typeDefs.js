@@ -12,6 +12,7 @@ const typeDefs = gql`
     reserveDays: Int
     price: Float
     quantity: Int
+    about: String
   }
 
   type Order {

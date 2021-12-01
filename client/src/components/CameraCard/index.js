@@ -16,9 +16,9 @@ function CameraCard(item) {
   return (
 
     <div className=" cameraCard ">
-    <section className="flex-column productCard" id={_id}>
+    <div id={_id}>
         <div className="card" style={{ width: '18rem' }}>
-          <div className="container">
+          <div className="container imgContainer">
             <img alt={model} className=" my-2" justifyContent="center" style={{ width: '14rem' }} variant="top" src={`/images/${image}`} />
           </div>
           <div>
@@ -37,7 +37,7 @@ function CameraCard(item) {
             </footer>
           </div>
         </div>
-      </section>
+      </div>
   </div>
   );
 }

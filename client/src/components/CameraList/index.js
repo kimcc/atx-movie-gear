@@ -42,7 +42,7 @@ function CameraList() {
   return (
     <div className="m-2">
       {state.cameras.length ? (
-        <div className="flex-row cardList">
+        <div className=" cardList">
           {filtercameras().map((camera) => (
             <CameraCard
               key={camera._id}
@@ -53,6 +53,8 @@ function CameraList() {
               resolution={camera.resolution}
               price={camera.price}
               reserveDays={camera.reserveDays}
+              description={camera.description}
+              about={camera.about}
             />
           ))}
         </div>

@@ -6,11 +6,7 @@ import { QUERY_CAMERAS } from '../../utils/queries';
 import AddToCart from '../AddToCart';
 
 import { useStoreContext } from "../../utils/GlobalState";
-import {
-  REMOVE_FROM_CART,
-  UPDATE_CART_DAYS,
-  ADD_TO_CART,
-  UPDATE_CAMERAS
+import { UPDATE_CAMERAS
 } from "../../utils/actions";
 
 function CameraItemDetail(item) {
@@ -18,60 +14,11 @@ function CameraItemDetail(item) {
   const { id } = useParams();
 
   const [currentCamera, setCurrentCamera] = useState({
-    // "model": "myCam",
-    // "brand": "MyCanon",
-    // "key": "1",
-    // "image": "canon_c200.jpeg",
-    // "resolution": "4K",
-    // "price": "150",
-    // "description": "tHIS IS THE CAMERA YOU WANT, OKAY????",
-    // "lensCompatibility": "EF-Mount",
-    // "quantity": "2",
-    // "reserveDays": "",
-    // "_id": "2"
   });
 
   const { loading, data } = useQuery(QUERY_CAMERAS);
 
-  const { cameras, cart } = state;
-
-  const {
-    image,
-    brand,
-    model,
-    resolution,
-    description,
-    lensCompatibility,
-    quantity,
-    _id,
-    price
-  } = item;
-
-  const addToCart = () => {
-    // find the cart item with the matching id
-    const itemInCart = cart.find((cartItem)=> cartItem._id === id);
-
-    //if there was a match, call UPDATE with a new purchase quantity
-    if(itemInCart){
-      dispatch({
-        type: UPDATE_CART_DAYS,
-        _id: id,
-        reserveDays: parseInt(itemInCart.reserveDays) + 1
-      });
-    }else{
-      dispatch({
-        type: ADD_TO_CART,
-        camera: { ...currentCamera, reserveDays: 1 }
-      });
-    }
-  };
-
-  const removeFromCart = () => {
-    dispatch({
-      type: REMOVE_FROM_CART,
-      _id: currentCamera._id
-    });
-  };
+  const { cameras } = state;
 
   useEffect(() => {
     if (cameras.length) {
@@ -95,7 +42,7 @@ function CameraItemDetail(item) {
 
           {/* Image Column */}
                   <div className="flex-column productImage mx-4 px-4">
-                    <img src={`/images/${currentCamera.image}`}/>
+                    <img src={`/images/${currentCamera.image}`} alt="product"/>
                   </div>
 
           {/* Description Column */}

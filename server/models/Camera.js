@@ -42,6 +42,9 @@ const cameraSchema = new Schema({
     type: Number,
     min: 0,
     default: 1
+  },
+  about:{
+    type: String,
   }
 });
 

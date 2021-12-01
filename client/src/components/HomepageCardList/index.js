@@ -40,11 +40,12 @@ function HomePageCardList() {
     return state.cameras;
   }
     return(
-        <div>
-    <div className="my-2">
+        <div className="homepageCardView">
+    <div className="mx-2 my-4">
+      <h4 className="homepageFeatured my-3 mx-3">Featured Products</h4>
       {state.cameras.length ? (
-        <div className="cardList">
-          {filtercameras().slice(0,3).map((camera) => (
+        <div className="cardList flex-column">
+          {filtercameras().slice(6, -5).map((camera) => (
             <HomePageCard
               key={camera._id}
               _id={camera._id}
@@ -54,6 +55,8 @@ function HomePageCardList() {
               resolution={camera.resolution}
               price={camera.price}
               reserveDays={camera.reserveDays}
+              description={camera.description}
+              about={camera.about}
             />
           ))}
         </div>
@@ -62,7 +65,7 @@ function HomePageCardList() {
       )}
       {loading ? <img src={spinner} alt="loading" /> : null}
     </div>
-  );
+
         </div>
     )
 }

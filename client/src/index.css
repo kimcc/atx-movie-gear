@@ -162,9 +162,9 @@ input[type="submit"] {
   margin-bottom: 24px;
 }
 
-.DayPicker_transitionContainer, 
-.DayPicker_transitionContainer_1, 
-.DayPicker_transitionContainer__horizontal, 
+.DayPicker_transitionContainer,
+.DayPicker_transitionContainer_1,
+.DayPicker_transitionContainer__horizontal,
 .DayPicker_transitionContainer__horizontal_2 {
   height: 300px !important;
   margin-top: -1px;
@@ -194,7 +194,7 @@ input[type="submit"] {
 
 /* Dropdown */
 select {
-  padding: 10px 10px; 
+  padding: 10px 10px;
   border: none;
   background-color: var(--medium);
   color: var(--light);
@@ -357,17 +357,47 @@ select:focus {
 .cameraCard {
   display: flex;
   flex-wrap: wrap;
+  margin: 20px;
+  padding-bottom: 15px;
+  align-content: flex-end;
 }
 
 body {
   color: rgb(43, 43, 43);
 }
 
+.imgContainer {
+  height: 227.8px;
+}
+
 img.productImage {
   justify-content: center;
 }
 
-/* need to get the text aligned left */
+/* Homepage Card */
+.homepageCard {
+ display: inline-flex;
+ padding: 20px;
+ align-items: center;
+}
+
+.homepageCardView {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.homepageCard.imgContainer {
+  width: 100%;
+}
+
+.featuredButton {
+  flex-direction: column;
+}
+
+.homepageProductName {
+  color: var(--secondary);
+
+}
 
 .cardFooter {
   font-weight: bold;
@@ -429,6 +459,7 @@ a.readMore {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 /* About */
