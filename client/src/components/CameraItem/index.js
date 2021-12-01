@@ -14,7 +14,8 @@ function CameraItem(item) {
     model,
     resolution,
     _id,
-    price
+    price,
+    about
   } = item;
 
   const { cart } = state;

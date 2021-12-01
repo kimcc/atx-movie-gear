@@ -92,6 +92,7 @@ a:hover {
 
 header {
   background: var(--dark);
+  width: 100%;
 }
 
 header a {
@@ -162,9 +163,9 @@ input[type="submit"] {
   margin-bottom: 24px;
 }
 
-.DayPicker_transitionContainer, 
-.DayPicker_transitionContainer_1, 
-.DayPicker_transitionContainer__horizontal, 
+.DayPicker_transitionContainer,
+.DayPicker_transitionContainer_1,
+.DayPicker_transitionContainer__horizontal,
 .DayPicker_transitionContainer__horizontal_2 {
   height: 300px !important;
   margin-top: -1px;
@@ -194,7 +195,7 @@ input[type="submit"] {
 
 /* Dropdown */
 select {
-  padding: 10px 10px; 
+  padding: 10px 10px;
   border: none;
   background-color: var(--medium);
   color: var(--light);
@@ -354,15 +355,56 @@ select:focus {
 
 /* Camera Card */
 
+.cameraCard {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  padding-bottom: 15px;
+  align-content: flex-end;
+}
+
 body {
   color: rgb(43, 43, 43);
+}
+
+.imgContainer {
+  height: 227.8px;
 }
 
 img.productImage {
   justify-content: center;
 }
 
-/* need to get the text aligned left */
+/* Homepage Card */
+.homepageCard {
+ display: inline-flex;
+ padding: 20px;
+ align-items: center;
+}
+
+.homepageCardView {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.homepageCard.imgContainer {
+  width: 100%;
+  border-style:var(--dark), 3px, solid;
+}
+
+.homepageFeatured {
+  font-weight: var(--medium);
+  color: var(--primary);
+  background-color: var(--dark);
+  padding: 12px;
+}
+
+.homepageProductName {
+  color: var(--primary);
+  background-color: var(--dark);
+  padding: 12px;
+
+}
 
 .cardFooter {
   font-weight: bold;
@@ -417,6 +459,14 @@ font-stretch: 1;
 a.readMore {
   font-style: oblique;
   color: var(--primary);
+}
+
+/* Card List */
+.cardList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 /* About */
@@ -498,6 +548,57 @@ li::marker {
 .fixed-body {
   overflow: hidden;
   block-size: 100%;
+/*  Login */
+form {
+  display: flex;
+  align-content: center;
+  /* box-sizing: border-box; */
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  margin: 10px;
+}
+
+form.label {
+  margin: 20px;
+
+}
+
+.loginInputDiv {
+  padding-bottom: 10px;
+}
+
+.login-btn {
+  align-self: flex-end;
+}
+
+.signupHeaderWrapper {
+  justify-content: start;
+}
+
+.signupWrapper {
+  justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.rsvpWrapper {
+  /* max-width: 33vp; */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction:row;
+}
+
+.rsvp-image {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  max-width: 55%;
+  min-width: 38%;
+}
+
+.signupForm {
+  margin-top: 0;
 }
 
 /* Cart */
@@ -650,6 +751,16 @@ footer label {
   display: block;
 }
 
+.mailing-list {
+display: flex;
+  flex-wrap: wrap;
+}
+
+.mailing-list-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .footer-row {
   padding-bottom: 32px;
   padding-top: 32px;
@@ -683,6 +794,7 @@ input[type="submit"] {
   font-size: 15px;
   padding: 8px 18px;
   border: none;
+
 }
 
 .social-link {
@@ -725,6 +837,12 @@ input[type="submit"] {
   background-color: var(--dark);
   width: 100%;
 }
+/* @media screen and (max-width: 70px)
+and (min-width: ) {
+  .logo {
+    flex-shrink: 1;
+  }
+} */
 
 @media screen and (max-width: 768px) {
   .card {
@@ -750,4 +868,87 @@ input[type="submit"] {
     display: none;
   }
 
+.introText {
+  flex-wrap: wrap;
+
+}
+
+  .footer-row.div {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 15px 0px;
+    overflow-inline: scroll;
+  }
+
+  .flex-row.footer-row {
+    justify-content: space-between;
+  }
+
+  .productImage {
+    flex-shrink: none;
+    align-self: center;
+    justify-content: center;
+  }
+
+}
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-width : 320px)
+and (max-width : 480px) {
+/* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px) {
+/* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+/* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-width : 768px)
+and (max-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-width : 768px)
+and (max-width : 1024px)
+and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-width : 768px)
+and (max-width : 1024px)
+and (orientation : portrait) {
+/* Styles */
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
 }

@@ -5,7 +5,7 @@ function Footer() {
 
   return (
     <footer className="px-4">
-      <div className="flex-column container">
+      <div className="flex-column container footerWrapper">
         {/* Top row info*/}
         <div className="flex-row space-between footer-row footer-row-top">
           <div>
@@ -25,21 +25,26 @@ function Footer() {
               Hours
             </h6>
             <p>
-            Mon-Fri 10 AM to 4 PM, Sat-Sun 11 AM to 3 PM
+            Mon-Fri 10 AM to 4 PM,
+            Sat-Sun 11 AM to 3 PM
             </p>
             <p>
             Other times by appointment only
             </p>
           </div>
           <div>
-            <form>
-              <label htmlFor="mailing-list">
+            <form className="flex-column">
+              {/* <div> */}
+                <label htmlFor="mailing-list">
                 <h6>
                 Sign up for our mailing list
                 </h6>
               </label>
+              {/* </div> */}
+              <div>
               <input type="text" id="mailing-list" name="mailing-list" placeholder="Email address"></input>
-              <input type="submit" value="Sign up"></input>
+              <input className="mailing-list-btn" type="submit" value="Sign up"></input>
+              </div>
             </form>
           </div>
         </div>

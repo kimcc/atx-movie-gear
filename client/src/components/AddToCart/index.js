@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import spinner from '../../assets/spinner.gif';
 import Cart from "../Cart";
 import { useQuery } from '@apollo/client';
@@ -9,9 +9,7 @@ import {
   REMOVE_FROM_CART,
   UPDATE_CART_DAYS,
   ADD_TO_CART,
-  UPDATE_CAMERAS
 } from "../../utils/actions";
-import RSVPDatePicker from "../DatePicker";
 
 function AddToCart(input) {
     const {
@@ -54,10 +52,12 @@ function AddToCart(input) {
         <div>
         <p>
             <button className="my-2" onClick={addToCart}>Make a Reservation</button>
+            <br />
             <button className="my-2"
                 disabled={!cart.find(p => p._id === currentCamera._id)}
                 onClick={removeFromCart}
             >
+
                 Remove from Cart
             </button>
       </p>

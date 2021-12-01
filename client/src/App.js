@@ -13,7 +13,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
-import Login from './pages/Login';
+import Login from './components/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
 import Cart from "./components/Cart";
@@ -61,7 +61,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
-              <Route exact path="/login" component={Login} />
+              <Route exact path="/Login" component={Login} />
               <Route exact path="/Cameras" component={Cameras} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/orderHistory" component={OrderHistory} />
