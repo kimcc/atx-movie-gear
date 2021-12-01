@@ -42,7 +42,7 @@ const cameraSchema = new Schema({
     type: Number,
     min: 0,
     default: 1
-  }
+  },
 });
 
 const Camera = mongoose.model('Camera', cameraSchema);

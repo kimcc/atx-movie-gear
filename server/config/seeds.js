@@ -74,7 +74,7 @@ db.once('open', async () => {
       lensCompatibility: 'E-Mount',
       image: 'SONY_PXW-Fx9_XDCAM.jpeg',
       price: 200,
-      quantity: 1
+      quantity: 1,
     },
     {
       model: 'FX6',
@@ -84,7 +84,7 @@ db.once('open', async () => {
       lensCompatibility: 'E-Mount',
       image: 'SONY_PXW-Fx6_XDCAM.jpeg',
       price: 150,
-      quantity: 2
+      quantity: 2,
     },
     {
       model: 'FX3',
@@ -94,7 +94,7 @@ db.once('open', async () => {
       lensCompatibility: 'E-Mount',
       image: 'SONY_PXW-Fx3_XDCAM.jpeg',
       price: 125,
-      quantity: 1
+      quantity: 1,
     },
     {
       model: 'Raven',
