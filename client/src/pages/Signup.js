@@ -34,9 +34,9 @@ function Signup(props) {
 
   return (
     <div>
-    <div className="container signupHeaderWrapper">
-      <h2 className=" signUpTitle my-4">Signup</h2>
-      <Link to="/login">← Go to Login</Link>
+    <div className="container my-4 signupHeaderWrapper">
+      <Link to="/login" >← Go to Login</Link>
+      <h2 className=" signUpTitle my-2">Signup</h2>
     </div>
 
     <div className="container signupWrapper my-4">

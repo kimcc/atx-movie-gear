@@ -33,11 +33,11 @@ function Login(){
   };
 
   return (
-    <div className="container my-1">
+    <div className="container my-4">
       <Link to="/signup">← Go to Signup</Link>
 
-      <h2>Login</h2>
-      <form onSubmit={handleFormSubmit}>
+      <h2 className=" my-2">Login</h2>
+      <form onSubmit={handleFormSubmit} className="my-4">
         <div className=" loginInputDiv my-2">
           <label htmlFor="email">Email address: </label>
           <br />
