@@ -3,9 +3,9 @@ const { User, Camera } = require('../models');
 
 db.once('open', async () => {
 
-  await Camera.deleteMany({});
+  await Camera.deleteMany();
 
-  const cameras = await Camera.collection.insertMany([
+  const cameras = await Camera.insertMany([
     {
       model: 'C300 MK III',
       brand: 'Canon',
@@ -152,7 +152,7 @@ db.once('open', async () => {
 
   console.log('cameras seeded');
 
-  // await User.deleteMany({});
+  await User.deleteMany();
 
   await User.create({
     firstName: 'Pamela',
@@ -170,7 +170,7 @@ db.once('open', async () => {
     ]
   });
 
-  // console.log('users seeded');
+  console.log('users seeded');
 
-  process.exit(0);
+  process.exit();
 });
