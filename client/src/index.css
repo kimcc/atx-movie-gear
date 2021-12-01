@@ -435,7 +435,7 @@ header {
   overflow: hidden;
 }
 
-nav a {
+nav a, .mobile-menu a {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 21px;
   letter-spacing: 1px;
@@ -446,7 +446,7 @@ nav a {
   margin-top: 21px;
 }
 
-nav a:hover {
+nav a:hover, .mobile-menu a:hover {
   color: var(--light);
   opacity: 1;
   text-decoration: none;
@@ -477,6 +477,27 @@ nav > div {
 
 li::marker {
   color: transparent;
+}
+
+.mobile-menu {
+  text-align: center;
+  display: flex;
+  position: absolute;
+  top: 0px;
+  z-index: 99;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.nav-hamburger {
+  margin-top: 11px;
+}
+
+.fixed-body {
+  overflow: hidden;
+  block-size: 100%;
 }
 
 /* Cart */
