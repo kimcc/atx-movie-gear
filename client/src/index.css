@@ -435,7 +435,7 @@ header {
   overflow: hidden;
 }
 
-nav a {
+nav a, .mobile-menu a {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 21px;
   letter-spacing: 1px;
@@ -446,7 +446,7 @@ nav a {
   margin-top: 21px;
 }
 
-nav a:hover {
+nav a:hover, .mobile-menu a:hover {
   color: var(--light);
   opacity: 1;
   text-decoration: none;
@@ -477,6 +477,27 @@ nav > div {
 
 li::marker {
   color: transparent;
+}
+
+.mobile-menu {
+  text-align: center;
+  display: flex;
+  position: absolute;
+  top: 0px;
+  z-index: 99;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.nav-hamburger {
+  margin-top: 11px;
+}
+
+.fixed-body {
+  overflow: hidden;
+  block-size: 100%;
 }
 
 /* Cart */
@@ -532,7 +553,7 @@ li::marker {
   right: 50px;
   top: 14px;
   border-radius: 50px;
-  z-index: 99;
+  z-index: 90;
 }
 
 .cart-item-num p {
@@ -686,8 +707,47 @@ input[type="submit"] {
   top: 2px;
 }
 
+.hidden {
+  visibility: initial;
+}
+
+.hidden-mobile {
+  visibility: hidden;
+}
+
+.center-logo {
+  display: initial;
+  text-align: initial;
+  visibility: initial;
+}
+
+.mobile-menu {
+  background-color: var(--dark);
+  width: 100%;
+}
+
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;
   }
+
+  .hidden {
+    visibility: hidden;
+  }
+
+  .hidden-mobile {
+    visibility: initial;
+  }
+
+  .center-logo {
+    display: block;
+    text-align: center;
+    width: 100%;
+    transform: translateX(-12px);
+  }
+
+  .display-none {
+    display: none;
+  }
+
 }
