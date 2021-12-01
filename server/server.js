@@ -3,7 +3,7 @@ const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const mongoose = require('mongoose');
 
-const { typeDefs, resolvers } = require('./schemas');
+const { typeDefs, resolvers } = require('./Schemas');
 const { authMiddleware } = require('./utils/auth');
 
 const PORT = process.env.PORT || 3001;
@@ -15,6 +15,7 @@ const startServer = async() =>{
     resolvers,
     context: authMiddleware
   });
+  
   
   await server.start()
   server.applyMiddleware({ app });
