@@ -24,7 +24,7 @@ import Success from './pages/Success';
 import Cameras from './pages/Cameras';
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
