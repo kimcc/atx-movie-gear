@@ -21,6 +21,71 @@ function Nav() {
       // If menu is open, add flex-column class. Otherwise add flex-row
       <ul className={`${menuOpen ? "flex-column" : "flex-row"}`}>
         <li className="mx-3">
+          <NavLink exact to="/" activeClassName="active" >
+            Home
+          </NavLink>
+        </li>
+        <li className="mx-3">
+          <NavLink to="/cameras" activeClassName="active" >
+            Cameras
+          </NavLink>
+        </li>
+        <li className="mx-3">
+          <NavLink to="/about" activeClassName="active" >
+            About
+          </NavLink>
+        </li>
+      </ul>
+    )
+  }
+
+  // Show links that require authentication
+  function showNavAuth() {
+    if (Auth.loggedIn()) {
+      return (
+        <ul className={`${menuOpen ? "flex-column" : "flex-row"}`}>
+          <li className="mx-3">
+            <NavLink to="/orderHistory" activeClassName="active" >
+              Order History
+            </NavLink>
+          </li>
+          <li className="mx-3">
+            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+            <a href="/" onClick={
+              function () {
+                toggleMenu();
+                Auth.logout()
+              } 
+              }>
+              Logout
+            </a>
+          </li>
+        </ul>
+      );
+    } else {
+      return (
+        <ul className={`${menuOpen ? "flex-column" : "flex-row"}`}>
+          <li className="mx-3">
+            <Link to="/signup" >
+              Signup
+            </Link>
+          </li>
+          <li className="mx-3">
+            <Link to="/login" >
+              Login
+            </Link>
+          </li>
+        </ul>
+      );
+    }
+  }
+
+  // Show the links that don't need authentication
+  function showNavLinksMobile() {
+    return (
+      // If menu is open, add flex-column class. Otherwise add flex-row
+      <ul className={`${menuOpen ? "flex-column" : "flex-row"}`}>
+        <li className="mx-3">
           <NavLink exact to="/" activeClassName="active" onClick={toggleMenu} >
             Home
           </NavLink>
@@ -40,7 +105,7 @@ function Nav() {
   }
 
   // Show links that require authentication
-  function showNavAuth() {
+  function showNavAuthMobile() {
     if (Auth.loggedIn()) {
       return (
         <ul className={`${menuOpen ? "flex-column" : "flex-row"}`}>
@@ -109,10 +174,10 @@ function Nav() {
     return (
         <div className="mobile-menu">
           <div className="flex-column">
-          {showNavLinks()}
+          {showNavLinksMobile()}
           </div>
 
-        {showNavAuth()}
+        {showNavAuthMobile()}
         </div>
     )
   }
