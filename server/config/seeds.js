@@ -154,22 +154,21 @@ db.once('open', async () => {
 
   // await User.deleteMany({});
 
-  // await User.create({
-  //   firstName: 'Pamela',
-  //   lastName: 'Washington',
-  //   email: 'pamela@testmail.com',
-  //   password: 'password12345',
-  //   phoneNumber: '111-111-1011',
-  //   mailList: true,
-  //   orders: [
-  //     {
-  //       cameras: [cameras[0]._id, cameras[0]._id, cameras[1]._id],
-  //       projectType: 'wedding',
-  //       reservationDates: 'firstDate-lastDate',
-
-  //     }
-  //   ]
-  // });
+  await User.create({
+    firstName: 'Pamela',
+    lastName: 'Washington',
+    email: 'pamela@testmail.com',
+    password: 'password12345',
+    phoneNumber: '111-111-1011',
+    mailList: true,
+    orders: [
+      {
+        cameras: [cameras[0]._id, cameras[0]._id, cameras[1]._id],
+        projectType: 'wedding',
+        reservationDate: 'firtsDate-lastDate',
+      }
+    ]
+  });
 
   // console.log('users seeded');
 

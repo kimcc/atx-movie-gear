@@ -23,9 +23,15 @@ import OrderHistory from './pages/OrderHistory';
 import Success from './pages/Success';
 import Cameras from './pages/Cameras';
 
-const httpLink = createHttpLink({
-  uri: '/graphql',
+let httpLink = createHttpLink({
+  uri: 'http://localhost:3001/graphql'
 });
+
+if(process.env.NODE_ENV === 'production'){
+  httpLink = createHttpLink({
+    uri: '/graphql'
+  });
+}
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
