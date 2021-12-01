@@ -52,10 +52,12 @@ function AddToCart(input) {
         <div>
         <p>
             <button className="my-2" onClick={addToCart}>Make a Reservation</button>
+            <br />
             <button className="my-2"
                 disabled={!cart.find(p => p._id === currentCamera._id)}
                 onClick={removeFromCart}
             >
+
                 Remove from Cart
             </button>
       </p>

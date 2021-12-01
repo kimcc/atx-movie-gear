@@ -13,7 +13,6 @@ export const QUERY_CAMERAS = gql`
       price
       quantity
       description
-      about
     }
   }
 `;

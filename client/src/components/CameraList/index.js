@@ -54,7 +54,6 @@ function CameraList() {
               price={camera.price}
               reserveDays={camera.reserveDays}
               description={camera.description}
-              about={camera.about}
             />
           ))}
         </div>

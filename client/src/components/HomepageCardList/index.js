@@ -42,7 +42,7 @@ function HomePageCardList() {
     return(
         <div className="homepageCardView">
     <div className="mx-2 my-4">
-      <h4 className="homepageFeatured my-3 mx-3">Featured Products</h4>
+      <h2 className="homepageFeatured my-3 mx-3" id="featured">New Arrivals</h2>
       {state.cameras.length ? (
         <div className="cardList flex-column">
           {filtercameras().slice(6, -5).map((camera) => (
@@ -56,7 +56,6 @@ function HomePageCardList() {
               price={camera.price}
               reserveDays={camera.reserveDays}
               description={camera.description}
-              about={camera.about}
             />
           ))}
         </div>

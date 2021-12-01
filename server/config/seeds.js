@@ -75,7 +75,6 @@ db.once('open', async () => {
       image: 'SONY_PXW-Fx9_XDCAM.jpeg',
       price: 200,
       quantity: 1,
-      about: "Whether you're shooting documentaries, events, reality TV, education, or corporate productions, the PXW-FX9 XDCAM 6K Full-Frame Camera System from Sony has you covered with its powerful and flexible 4K interchangeable lens camera system. The PXW-FX9 features a full-frame, oversampled 6K Exmor R CMOS sensor that allows you to capture 4K images with cinematic depth of field."
     },
     {
       model: 'FX6',
@@ -86,7 +85,6 @@ db.once('open', async () => {
       image: 'SONY_PXW-Fx6_XDCAM.jpeg',
       price: 150,
       quantity: 2,
-      about: "The FX6 Full-Frame Camera from Sony was developed to offer versatile, cine-style imaging in a truly compact form. With the ability to capture up to 15+ stops of dynamic range, Sony's S-Cinetone gamma for filmlike skin tones, and up to 10-bit, 4:2:2 XAVC-I recording, the FX6 is poised to both supplement your FX9 capture and to nimbly take on documentary, gimbal, and drone shoots on its own. The FX6 camera combines a 4K full-frame Exmor R sensor with a BIONX XR engine for extremely sensitive capture in a range of settings using a base ISO of 800 as well as an ISO 12800 high-sensitivity mode for nuanced low-light scenes."
     },
     {
       model: 'FX3',
@@ -97,7 +95,6 @@ db.once('open', async () => {
       image: 'SONY_PXW-Fx3_XDCAM.jpeg',
       price: 125,
       quantity: 1,
-      about: "The Sony FX3 borrows from both the Cinema Line and Alpha series of cameras to create an optimized portable cinema camera. The FX3 features all of the imaging attributes you'd expect from this class but sports a newly designed body that's hand-holdable, with a streamlined and minimal profile, and has a \"cage-free\" design, indicating the ability to secure various accessories directly to the camera body."
     },
     {
       model: 'Raven',

@@ -37,7 +37,8 @@ function CameraItemDetail(item) {
         <div className="my-3">
          <h1 className="productTitle">{currentCamera.brand + " " + currentCamera.model}</h1>
            <Link to="/cameras">← Back to Cameras</Link>
-             <div >
+
+             <div className="detailWrapper">
                 <section className="flex-row">
 
           {/* Image Column */}
