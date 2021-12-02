@@ -29,7 +29,7 @@ Install Austin Movie Gear with npm
 
 Deployed to:
 
-[Heroku](https://www.w3.org/Provider/Style/dummy.html)
+[Heroku](https://polar-lowlands-07100.herokuapp.com/)
 
   
 ## Tech Stack
