@@ -161,7 +161,7 @@ db.once('open', async () => {
       quantity: 1
     },
     {
-      item_type: 'Lense',
+      item_type: 'Lens',
       model: 'asdfasdfasdf',
       brand: 'asdfasdfasdf',
       resolution: 'asdfasdfasdf',
@@ -171,7 +171,6 @@ db.once('open', async () => {
       price: 85,
       quantity: 1
     }
-
 
   ]);
 

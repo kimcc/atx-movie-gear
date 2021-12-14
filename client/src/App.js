@@ -22,6 +22,7 @@ import { StoreProvider } from "./utils/GlobalState";
 import OrderHistory from './pages/OrderHistory';
 import Success from './pages/Success';
 import Cameras from './pages/Cameras';
+import Lenses from './pages/Lenses';
 
 let httpLink;
 
@@ -63,6 +64,7 @@ function App() {
               <Route exact path="/about" component={About} />
               <Route exact path="/Login" component={Login} />
               <Route exact path="/Cameras" component={Cameras} />
+              <Route exact path="/Lenses" component={Lenses} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/orderHistory" component={OrderHistory} />
               <Route exact path="/Products/:id" component={Detail} />
