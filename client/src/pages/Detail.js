@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import CameraItemDetail from '../components/CameraItemDetail';
+import ProductItemDetail from '../components/ProductItemDetail';
 
-import { QUERY_CAMERAS } from '../utils/queries';
+import { QUERY_PRODUCTS } from '../utils/queries';
 import spinner from '../assets/spinner.gif';
 
 import { useStoreContext } from "../utils/GlobalState";
-import { UPDATE_CAMERAS
+import { UPDATE_PRODUCTS
 } from "../utils/actions";
 import { idbPromise } from "../utils/helpers";
 
@@ -15,32 +15,32 @@ function Detail() {
   const [state, dispatch] = useStoreContext();
   const { id } = useParams();
 
-  const [currentCamera, setCurrentCamera] = useState({
+  const [currentProduct, setCurrentProduct] = useState({
 });
 
-  const { loading, data } = useQuery(QUERY_CAMERAS);
+  const { loading, data } = useQuery(QUERY_PRODUCTS);
 
-  const { cameras } = state;
+  const { products } = state;
 
   useEffect(() => {
-    if (cameras.length) {
-      setCurrentCamera(cameras.find((camera) => camera._id === id));
+    if (products.length) {
+      setCurrentProduct(products.find((product) => product._id === id));
     }else if(data){
       dispatch({
-        type: UPDATE_CAMERAS,
-        cameras: data.cameras
+        type: UPDATE_PRODUCTS,
+        products: data.products
       });
-      data.cameras.forEach((camera) =>{
-        idbPromise('cameras', 'put', camera);
+      data.products.forEach((product) =>{
+        idbPromise('products', 'put', product);
       });
     }
-  }, [cameras, data, loading, dispatch,  id]);
+  }, [products, data, loading, dispatch,  id]);
 
   return (
     <>
-      {currentCamera ? (
+      {currentProduct ? (
         <div className="container space-between">
-          <CameraItemDetail />
+          <ProductItemDetail />
         </div>
       ) : null}
       {loading ? <img src={spinner} alt="loading" /> : null}

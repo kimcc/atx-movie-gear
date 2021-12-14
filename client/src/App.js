@@ -65,7 +65,7 @@ function App() {
               <Route exact path="/Cameras" component={Cameras} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/orderHistory" component={OrderHistory} />
-              <Route exact path="/Cameras/:id" component={Detail} />
+              <Route exact path="/Products/:id" component={Detail} />
               <Route exact path="/success" component={Success} />
               <Route component={NoMatch} />
             </Switch>

@@ -2,7 +2,12 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const cameraSchema = new Schema({
+const ProductSchema = new Schema({
+  item_type: {
+    type: String,
+    required: true,
+    trim: true
+  },
   model: {
     type: String,
     required: true,
@@ -21,7 +26,7 @@ const cameraSchema = new Schema({
   description: {
     type: String
   },
-  lensCompatibility:{
+  Compatibility:{
     type: String,
     required: true,
     trim: true
@@ -45,6 +50,6 @@ const cameraSchema = new Schema({
   },
 });
 
-const Camera = mongoose.model('Camera', cameraSchema);
+const Product = mongoose.model('Product', ProductSchema);
 
-module.exports = Camera;
+module.exports = Product;

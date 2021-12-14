@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import spinner from '../../assets/spinner.gif';
 import Cart from "../Cart";
 import { useQuery } from '@apollo/client';
-import {QUERY_CAMERAS} from '../../utils/queries';
+import {QUERY_PRODUCTS} from '../../utils/queries';
 import { useStoreContext } from "../../utils/GlobalState";
 import {
   REMOVE_FROM_CART,
@@ -13,11 +13,11 @@ import {
 
 function AddToCart(input) {
     const {
-        currentCamera
+        currentProduct
     } = input
 
     const { id } = useParams();
-    const { loading } = useQuery(QUERY_CAMERAS);
+    const { loading } = useQuery(QUERY_PRODUCTS);
 
     const addToCart = () => {
         // find the cart item with the matching id
@@ -33,7 +33,7 @@ function AddToCart(input) {
         }else{
           dispatch({
             type: ADD_TO_CART,
-            camera: { ...currentCamera, reserveDays: 1 }
+            product: { ...currentProduct, reserveDays: 1 }
           });
         }
       };
@@ -45,7 +45,7 @@ function AddToCart(input) {
     const removeFromCart = () => {
         dispatch({
           type: REMOVE_FROM_CART,
-          _id: currentCamera._id
+          _id: currentProduct._id
         });
       };
     return(
@@ -54,7 +54,7 @@ function AddToCart(input) {
             <button className="my-2" onClick={addToCart}>Make a Reservation</button>
             <br />
             <button className="my-2"
-                disabled={!cart.find(p => p._id === currentCamera._id)}
+                disabled={!cart.find(p => p._id === currentProduct._id)}
                 onClick={removeFromCart}
             >
 

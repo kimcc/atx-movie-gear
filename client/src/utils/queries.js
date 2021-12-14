@@ -1,13 +1,14 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_CAMERAS = gql`
+export const QUERY_PRODUCTS = gql`
 {
-    cameras{
+    products{
       _id
+      item_type
       model
       brand
       resolution
-      lensCompatibility
+      Compatibility
       image
       reserveDays
       price
@@ -18,8 +19,8 @@ export const QUERY_CAMERAS = gql`
 `;
 
 export const QUERY_CHECKOUT = gql`
-  query getCheckout($cameras: [ID]!) {
-    checkout(cameras: $cameras) {
+  query getCheckout($products: [ID]!) {
+    checkout(products: $products) {
       session
     }
   }
@@ -38,7 +39,7 @@ export const QUERY_USER = gql`
         purchaseDate
         reservationDate
         projectType
-        cameras {
+        products {
           _id
           brand
           model

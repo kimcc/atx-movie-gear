@@ -1,5 +1,5 @@
 import {
-  UPDATE_CAMERAS,
+  UPDATE_PRODUCTS,
   ADD_TO_CART,
   REMOVE_FROM_CART,
   UPDATE_CART_DAYS,
@@ -12,29 +12,29 @@ import { useReducer } from 'react';
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    // if action type value is the value of `UPDATE_CAMERAS`, return a new state object with an updated cameras array
-    case UPDATE_CAMERAS:
+    // if action type value is the value of `UPDATE_PRODUCTS`, return a new state object with an updated products array
+    case UPDATE_PRODUCTS:
       return {
         ...state,
-        cameras: [...action.cameras],
+        products: [...action.products],
       };
 
     case ADD_TO_CART:
       return{
         ...state,
         cartOpen: true,
-        cart: [...state.cart, action.camera]
+        cart: [...state.cart, action.product]
       };
 
     case ADD_MULTIPLE_TO_CART:
       return {
         ...state,
-        cart: [...state.cart, ...action.cameras],
+        cart: [...state.cart, ...action.products],
       };
 
     case REMOVE_FROM_CART:
-      let newState = state.cart.filter(camera => {
-        return camera._id !== action._id;
+      let newState = state.cart.filter(product => {
+        return product._id !== action._id;
       });
 
       return {
@@ -47,11 +47,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         cartOpen: true,
-        cart: state.cart.map(camera => {
-          if (action._id === camera._id) {
-            camera.reserveDays = action.reserveDays;
+        cart: state.cart.map(product => {
+          if (action._id === product._id) {
+            product.reserveDays = action.reserveDays;
           }
-          return camera;
+          return product;
         })
       };
 

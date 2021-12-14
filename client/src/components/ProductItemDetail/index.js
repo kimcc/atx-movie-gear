@@ -2,48 +2,48 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_CAMERAS } from '../../utils/queries';
+import { QUERY_PRODUCTS } from '../../utils/queries';
 import AddToCart from '../AddToCart';
 
 import { useStoreContext } from "../../utils/GlobalState";
-import { UPDATE_CAMERAS
+import { UPDATE_PRODUCTS
 } from "../../utils/actions";
 
-function CameraItemDetail(item) {
+function ProductItemDetail(item) {
   const [state, dispatch] = useStoreContext();
   const { id } = useParams();
 
-  const [currentCamera, setCurrentCamera] = useState({
+  const [currentProduct, setCurrentProduct] = useState({
   });
 
-  const { loading, data } = useQuery(QUERY_CAMERAS);
+  const { loading, data } = useQuery(QUERY_PRODUCTS);
 
-  const { cameras } = state;
+  const { products } = state;
 
   useEffect(() => {
-    if (cameras.length) {
-      setCurrentCamera(cameras.find((camera) => camera._id === id));
+    if (products.length) {
+      setCurrentProduct(products.find((product) => product._id === id));
     }else if(data){
       dispatch({
-        type: UPDATE_CAMERAS,
-        cameras: data.cameras
+        type: UPDATE_PRODUCTS,
+        products: data.products
       });
     }
-  }, [cameras, data, loading, dispatch,  id]);
+  }, [products, data, loading, dispatch,  id]);
 
   return (
      <>
-       {currentCamera ? (
+       {currentProduct ? (
         <div className="my-3">
-         <h1 className="productTitle">{currentCamera.brand + " " + currentCamera.model}</h1>
-           <Link to="/cameras">← Back to Cameras</Link>
+         <h1 className="productTitle">{currentProduct.brand + " " + currentProduct.model}</h1>
+           <Link to="/products">← Back to products</Link>
 
              <div className="detailWrapper">
                 <section className="flex-row">
 
           {/* Image Column */}
                   <div className="flex-column productImage mx-4 px-4">
-                    <img src={`/images/${currentCamera.image}`} alt="product"/>
+                    <img src={`/images/${currentProduct.image}`} alt="product"/>
                   </div>
 
           {/* Description Column */}
@@ -51,9 +51,9 @@ function CameraItemDetail(item) {
 
           {/* title and price  */}
                     <h2 className="productDescriptionHeading">
-                      {currentCamera.brand + " " + currentCamera.model}</h2>
+                      {currentProduct.brand + " " + currentProduct.model}</h2>
                         <div>
-                        <h3>${currentCamera.price}/day</h3>
+                        <h3>${currentProduct.price}/day</h3>
                         </div>
 
           {/* Specs List */}
@@ -63,28 +63,28 @@ function CameraItemDetail(item) {
 
                             <li className="my-2">
                               <div className="listTitle">Resolution: </div>
-                              <div className="listElement">{currentCamera.resolution}</div>
+                              <div className="listElement">{currentProduct.resolution}</div>
                             </li>
 
                             <li className="my-2">
                               <div className="listTitle">Lens Compatibility: </div>
-                              <div className="listElement">{currentCamera.lensCompatibility}</div>
+                              <div className="listElement">{currentProduct.lensCompatibility}</div>
                             </li>
 
 
                             <li className="my-2">
                               <div className="listTitle">About: </div>
-                              <div className="listElement">{currentCamera.description}
+                              <div className="listElement">{currentProduct.description}
                               </div>
                             </li>
 
                             <li className="my-2">
                               <div className="listTitle">In Stock: </div>
-                              <div className="listElement">{currentCamera.quantity}</div>
+                              <div className="listElement">{currentProduct.quantity}</div>
 
                             </li>
                         </ul>
-                        <AddToCart currentCamera={currentCamera} />
+                        <AddToCart currentProduct={currentProduct} />
                       </section>
                   </div>
 
@@ -101,4 +101,4 @@ function CameraItemDetail(item) {
   )
 }
 
-export default CameraItemDetail;
+export default ProductItemDetail;
