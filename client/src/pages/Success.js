@@ -36,7 +36,7 @@ function Success() {
 
       setTimeout(()=>{
         window.location.assign('/');
-      }, 3000);
+      }, 9000);
     }
     saveOrder();
   }, [addOrder]);
