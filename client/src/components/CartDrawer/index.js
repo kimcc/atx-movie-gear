@@ -7,6 +7,7 @@ import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
 import "react-dates/lib/css/_datepicker.css";
 import { idbPromise } from "../../utils/helpers";
+import { calculateRentalPeriod } from "../../utils/rentalperiod";
 
 function CartDrawer(props) {
 
@@ -16,6 +17,16 @@ function CartDrawer(props) {
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
   const [focusedInput, setFocusedInput] = useState();
+  const [reserveDays, setReserveDays] = useState(1);
+
+  const calculate = (startDate, endDate) => {
+    const calculatedReserveDays = calculateRentalPeriod(startDate, endDate);
+    console.log(calculatedReserveDays);
+    setReserveDays(calculatedReserveDays);
+    console.log(state);
+    state.reserveDays = 4;
+    console.log(this)
+  }
 
   return (
     <div className="cart-container">
@@ -26,7 +37,7 @@ function CartDrawer(props) {
           <BsXLg />
         </div>
       </div>
-    
+
       {state.cart.length ?(
         <div>
           {state.cart.map(item => (
@@ -38,17 +49,19 @@ function CartDrawer(props) {
               <h6>Pickup & dropoff dates</h6>
               <DateRangePicker
                 startDate={startDate}
-                startDateId="start-date" 
-                endDate={endDate} 
-                endDateId="end-date" 
+                startDateId="start-date"
+                endDate={endDate}
+                endDateId="end-date"
                 onDatesChange={({ startDate, endDate }) => {
                   setStartDate(startDate);
                   setEndDate(endDate);
+                  // const dateDifference = calculateRentalPeriod(startDate, endDate);
+                  calculate(startDate, endDate);
                   idbPromise('reservationDate', "put",
-                  `PickUp: ${new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(startDate)}`+ 
+                  `PickUp: ${new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(startDate)}`+
                   ` DropOff: ${new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(endDate)}`)
                 }}
-                
+
                 focusedInput={focusedInput}
                 onFocusChange={(focusedInput) => setFocusedInput(focusedInput)}
                 startDatePlaceholderText="Pickup date"
@@ -89,7 +102,7 @@ function CartDrawer(props) {
               <h5>Total</h5>
               <h3> ${props.calculateTotal}</h3>
             </div>
-          
+
             {
               Auth.loggedIn() ?
                 <button onClick={props.submitCheckout}>

@@ -8,6 +8,8 @@ import { idbPromise } from "../../utils/helpers";
 import { QUERY_CHECKOUT } from '../../utils/queries';
 import { loadStripe } from '@stripe/stripe-js';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { calculateRentalPeriod } from '../../utils/rentalperiod';
+
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
@@ -46,9 +48,17 @@ const Cart = () => {
 
   function calculateTotal() {
     let sum = 0;
+    // const quantity =
     state.cart.forEach(item => {
       sum += item.price * item.reserveDays;
     });
+    console.log('total' + state.reserveDays);
+
+    // const newSum = calculateRentalPeriod() * quantity;
+    // state.
+
+    // number of days between pickup and dropoff * sum
+
     return sum.toFixed(2);
   }
 
@@ -81,8 +91,8 @@ const Cart = () => {
     return (
       <>
       <div className={drawerClasses}>
-          <CartDrawer 
-          toggleCart={toggleCart} 
+          <CartDrawer
+          toggleCart={toggleCart}
           calculateTotal={total}
           submitCheckout={submitCheckout}
           />
@@ -106,14 +116,14 @@ const Cart = () => {
   return (
     <>
     <div className={drawerClasses}>
-      <CartDrawer 
-      toggleCart={toggleCart} 
+      <CartDrawer
+      toggleCart={toggleCart}
       calculateTotal={total}
       submitCheckout={submitCheckout}
       />
     </div>
-    <CartDrawerBackdrop 
-      toggleCart={toggleCart} 
+    <CartDrawerBackdrop
+      toggleCart={toggleCart}
     />
     </>
   );
