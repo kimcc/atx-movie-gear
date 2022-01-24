@@ -15,7 +15,7 @@ function OrderHistory() {
   return (
     <>
       <div className="container my-1">
-        <Link to="/">← Back to Cameras</Link>
+        <Link to="/">← Back to Products</Link>
 
         {user ? (
           <>
@@ -36,9 +36,9 @@ function OrderHistory() {
                   project Type: {order.projectType}
                 </h4>
                 <div className="flex-row">
-                  {order.cameras.map(({ _id, image, brand, model, price }, index) => (
+                  {order.products.map(({ _id, image, brand, model, price }, index) => (
                     <div key={index} className="card px-1 py-1">
-                      <Link to={`/cameras/${_id}`}>
+                      <Link to={`/products/${_id}`}>
                         <img alt={model} src={`/images/${image}`} />
                         <p>{brand+ " " + model}</p>
                       </Link>

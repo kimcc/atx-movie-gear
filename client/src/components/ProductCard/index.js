@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function CameraCard(item) {
+function ProductCard(item) {
 
   const {
     image,
@@ -15,7 +15,7 @@ function CameraCard(item) {
 
   return (
 
-    <div className=" cameraCard ">
+    <div className=" productCard ">
     <div id={_id}>
         <div className="card" style={{ width: '18rem' }}>
           <div className="container imgContainer">
@@ -28,7 +28,7 @@ function CameraCard(item) {
               {description}
             </div>
             <button className="my-2">
-            <Link to={`/cameras/${_id}`}>
+            <Link to={`/products/${_id}`}>
               See Product Details</Link>
             </button>
             <footer className="cardFooter" id="price">
@@ -42,4 +42,4 @@ function CameraCard(item) {
   );
 }
 
-export default CameraCard;
+export default ProductCard;

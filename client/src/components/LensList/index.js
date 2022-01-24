@@ -9,9 +9,9 @@ import { UPDATE_PRODUCTS } from '../../utils/actions';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { idbPromise } from "../../utils/helpers";
 
-function CameraList() {
+function LensList() {
   const [state, dispatch] = useStoreContext();
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const {loading, data} = useQuery(QUERY_PRODUCTS);
 
   useEffect(() => {
     if(data){
@@ -36,13 +36,13 @@ function CameraList() {
   }, [data, loading, dispatch]);
 
   function products() {
-    let cameras = [];
+    let lenses = [];
     for (let i=0; state.products.length > i; i++){
-      if(state.products[i].item_type === "Camera"){
-        cameras.push(state.products[i])
+      if(state.products[i].item_type === "Lens"){
+        lenses.push(state.products[i])
       }
     } 
-    return cameras
+    return lenses
   }
 
   console.log(products())
@@ -66,11 +66,11 @@ function CameraList() {
           ))}
         </div>
       ) : (
-        <h3>You haven't added any cameras yet!</h3>
+        <h3>You haven't added any lenses yet!</h3>
       )}
       {loading ? <img src={spinner} alt="loading" /> : null}
     </div>
   );
 }
 
-export default CameraList;
+export default LensList;

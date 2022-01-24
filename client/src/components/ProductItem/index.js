@@ -5,7 +5,7 @@ import { ADD_TO_CART, UPDATE_CART_DAYS} from '../../utils/actions';
 import { idbPromise } from "../../utils/helpers";
 
 
-function CameraItem(item) {
+function ProductItem(item) {
   const [state, dispatch] = useStoreContext();
 
   const {
@@ -38,7 +38,7 @@ function CameraItem(item) {
     }else{
       dispatch({
         type: ADD_TO_CART,
-        camera: { ...item, reserveDays: 1 }
+        product: { ...item, reserveDays: 1 }
       });
       idbPromise('cart', 'put', { ...item, reserveDays: 1 });
     }
@@ -46,7 +46,7 @@ function CameraItem(item) {
 
   return (
     <div className="card px-1 py-1">
-      <Link to={`/cameras/${_id}`}>
+      <Link to={`/products/${_id}`}>
         <img
           alt={model}
           src={`/images/${image}`}
@@ -62,4 +62,4 @@ function CameraItem(item) {
   );
 }
 
-export default CameraItem;
+export default ProductItem;
