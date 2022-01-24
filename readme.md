@@ -34,7 +34,7 @@ Deployed to:
   
 ## Tech Stack
 
-**Client:** React, Javascript
+**Client:** React, Javascript, CSS
 
 **Server:** Node, Express, MongoDB, graphQL
 
