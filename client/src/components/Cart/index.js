@@ -18,7 +18,7 @@ const Cart = () => {
   useEffect(()=>{
     async function getCart(){
       const cart = await idbPromise('cart', 'get');
-      dispatch({ type: ADD_MULTIPLE_TO_CART, cameras: [...cart]});
+      dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart]});
     };
 
     if(!state.cart.length){
@@ -64,7 +64,7 @@ const Cart = () => {
     const productIds = [];
 
     getCheckout({
-      variables: { cameras: productIds }
+      variables: { products: productIds }
     });
 
     state.cart.forEach((item)=> {

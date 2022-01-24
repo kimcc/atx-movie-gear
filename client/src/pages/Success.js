@@ -9,24 +9,24 @@ function Success() {
   useEffect(() => {
     async function saveOrder() {
       const cart = await idbPromise('cart', 'get')
-      const cameras = cart.map(item => item._id);
+      const products = cart.map(item => item._id);
       let reservationDate = await idbPromise('reservationDate', 'get')
       let projectType = await idbPromise('projectType', 'get');
 
       console.log(reservationDate[0])
 
-      if (cameras.length) {
+      if (products.length) {
         const { data } = 
         await addOrder(
           { variables: {
-              cameras,
+              products,
               reservationDate: reservationDate.splice(-1).toString(),
               projectType: projectType.splice(-1).toString() 
             }
           });
-        const cameraData = data.addOrder.cameras;
+        const productData = data.addOrder.products;
 
-        cameraData.forEach((item) => {
+        productData.forEach((item) => {
           idbPromise('cart', 'delete', item);
         });
       }
@@ -34,9 +34,9 @@ function Success() {
       idbPromise( 'reservationDate','deleteData');
       idbPromise( 'projectType','deleteData');
 
-      // setTimeout(()=>{
-      //   window.location.assign('/');
-      // }, 3000);
+      setTimeout(()=>{
+        window.location.assign('/');
+      }, 9000);
     }
     saveOrder();
   }, [addOrder]);

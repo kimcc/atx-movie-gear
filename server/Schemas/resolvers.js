@@ -1,28 +1,28 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Camera, Order } = require('../models');
+const { User, Product, Order } = require('../models');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
   Query: {  
     checkout: async (parent, args, context) =>{
-      const order = new Order({ cameras: args.cameras});
-      const { cameras } = await order.populate('cameras').execPopulate();
+      const order = new Order({ products: args.products});
+      const { products } = await order.populate('products').execPopulate();
       const line_items = [];
       const url = new URL(context.headers.referer).origin;
 
-      for (let i = 0; i < cameras.length; i++) {
+      for (let i = 0; i < products.length; i++) {
         // generate product id
         const product = await stripe.products.create({
-          name: cameras[i].model +" " +cameras[i].brand,
-          description: cameras[i].description,
-          images: [`${url}/images/${cameras[i].image}`]
+          name: products[i].model +" " +products[i].brand,
+          description: products[i].description,
+          images: [`${url}/images/${products[i].image}`]
         });
 
         // generate price id using the product id
         const price = await stripe.prices.create({
           product: product.id,
-          unit_amount: cameras[i].price * 100,
+          unit_amount: products[i].price * 100,
           currency: 'usd',
         });
 
@@ -37,25 +37,25 @@ const resolvers = {
         payment_method_types: ['card'],
         line_items,
         mode: 'payment',
-        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        success_url: `${url}/success`,
         cancel_url: `${url}/`
       });
       
       return { session: session.id };
     },
 
-    cameras: async () => {
-      return await Camera.find();
+    products: async () => {
+      return await Product.find();
     },
 
-    camera: async (parent, { _id }) => {
-      return await Camera.findById(_id)
+    product: async (parent, { _id }) => {
+      return await Product.findById(_id)
     },
 
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: 'orders.cameras',
+          path: 'orders.products',
         });
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
         return user;
@@ -67,7 +67,7 @@ const resolvers = {
     order: async (parent, {_id}, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: 'orders.cameras',
+          path: 'orders.products',
         });
 
         return user.orders.id(_id);
@@ -101,10 +101,10 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    updateCamera: async (parent, { _id, quantity }) => {
+    updateProduct: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 
-      return await Camera.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+      return await Product.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });

@@ -13,7 +13,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
-import Login from './pages/Login';
+import Login from './components/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
 import Cart from "./components/Cart";
@@ -22,10 +22,19 @@ import { StoreProvider } from "./utils/GlobalState";
 import OrderHistory from './pages/OrderHistory';
 import Success from './pages/Success';
 import Cameras from './pages/Cameras';
+import Lenses from './pages/Lenses';
 
-const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
-});
+let httpLink;
+
+if(process.env.NODE_ENV === 'production'){
+  httpLink = createHttpLink({
+    uri: '/graphql'
+  });
+}else{
+  httpLink = createHttpLink({
+    uri: 'http://localhost:3001/graphql'
+  });
+}
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
@@ -53,11 +62,12 @@ function App() {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
-              <Route exact path="/login" component={Login} />
+              <Route exact path="/Login" component={Login} />
               <Route exact path="/Cameras" component={Cameras} />
+              <Route exact path="/Lenses" component={Lenses} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/orderHistory" component={OrderHistory} />
-              <Route exact path="/Cameras/:id" component={Detail} />
+              <Route exact path="/Products/:id" component={Detail} />
               <Route exact path="/success" component={Success} />
               <Route component={NoMatch} />
             </Switch>
