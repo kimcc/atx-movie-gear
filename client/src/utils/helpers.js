@@ -10,7 +10,7 @@ export function idbPromise(storeName, method, object){
     request.onupgradeneeded = function(e) {
       const db = request.result;
       // create object store for each type of data and set "primary" key index to be the `_id` of the data
-      db.createObjectStore('cameras', { keyPath: '_id' });
+      db.createObjectStore('products', { keyPath: '_id' });
       db.createObjectStore('cart', { keyPath: '_id' });
       db.createObjectStore('reservationDate', {autoIncrement: true});
       db.createObjectStore('projectType', {autoIncrement: true});

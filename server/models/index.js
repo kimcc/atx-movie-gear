@@ -1,5 +1,5 @@
-const Camera = require('./Camera');
+const Product = require('./Product');
 const User = require('./User');
 const Order = require('./Order');
 
-module.exports = { Camera, User, Order }
+module.exports = { Product, User, Order }

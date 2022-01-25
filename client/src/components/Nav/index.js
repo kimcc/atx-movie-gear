@@ -31,6 +31,11 @@ function Nav() {
           </NavLink>
         </li>
         <li className="mx-3">
+          <NavLink to="/lenses" activeClassName="active" >
+            Lenses
+          </NavLink>
+        </li>
+        <li className="mx-3">
           <NavLink to="/about" activeClassName="active" >
             About
           </NavLink>
