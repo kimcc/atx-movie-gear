@@ -12,10 +12,10 @@ const orderSchema = new Schema({
     type: String,
     required: true
   },
-  cameras:[
+  products:[
     {
       type: Schema.Types.ObjectId,
-      ref: 'Camera'
+      ref: 'Product'
     }
   ],
   projectType: {

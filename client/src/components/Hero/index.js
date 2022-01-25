@@ -16,7 +16,7 @@ function Hero() {
         <p>
         Get the cinema look with great cinema cameras &mdash; at affordable prices!
         </p>
-          <Link to="/cameras">
+          <Link to="/products">
             Learn more
             <span role="img" aria-label="arrow">
               <BsArrowRight />

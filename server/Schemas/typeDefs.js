@@ -1,13 +1,14 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type Camera {
+  type Product {
     _id: ID
+    item_type: String
     model: String
     brand: String
     resolution: String
     description: String
-    lensCompatibility: String
+    Compatibility: String
     image: String
     reserveDays: Int
     price: Float
@@ -18,7 +19,7 @@ const typeDefs = gql`
     _id: ID
     purchaseDate: String
     reservationDate: String
-    cameras:[Camera]
+    products:[Product]
     projectType: String
   }
 
@@ -42,18 +43,18 @@ const typeDefs = gql`
   }
 
   type Query {
-    cameras( name: String): [Camera]
-    camera(_id: ID!): Camera
+    products( name: String): [Product]
+    product(_id: ID!): Product
     user: User
     order(_id: ID!): Order
-    checkout(cameras: [ID]!): Checkout
+    checkout(products: [ID]!): Checkout
   }
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!, phoneNumber: String, mailList: Boolean): Auth
-    addOrder(cameras: [ID]!, reservationDate: String!, projectType: String!): Order
+    addOrder(products: [ID]!, reservationDate: String!, projectType: String!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String, phoneNumber: String, mailList: Boolean): User
-    updateCamera(_id: ID, quantity: Int!): Camera
+    updateProduct(_id: ID, quantity: Int!): Product
     login(email: String!, password: String!): Auth
   }
 `;
