@@ -14,7 +14,7 @@ function Footer() {
             </h5>
             <p>
               8711 Burnet Road F-73
-              Austin,Tx 78757
+              Austin, TX 78757
             </p>
             <p>
               512.788.5462

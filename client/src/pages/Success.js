@@ -16,12 +16,12 @@ function Success() {
       console.log(reservationDate[0])
 
       if (products.length) {
-        const { data } = 
+        const { data } =
         await addOrder(
           { variables: {
               products,
               reservationDate: reservationDate.splice(-1).toString(),
-              projectType: projectType.splice(-1).toString() 
+              projectType: projectType.splice(-1).toString()
             }
           });
         const productData = data.addOrder.products;
@@ -46,6 +46,7 @@ function Success() {
         <h2>
           Thank you for your purchase!
         </h2>
+        <br/>
         <h2>
           You will now be redirected to the homepage
         </h2>
