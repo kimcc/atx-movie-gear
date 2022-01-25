@@ -11,5 +11,3 @@ export function calculateRentalPeriod (startDate, endDate) {
 }
 
 calculateRentalPeriod();
-
-// export default calculateRentalPeriod;

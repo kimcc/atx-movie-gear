@@ -14,10 +14,7 @@ function Footer() {
             </h5>
             <p>
               8711 Burnet Road F-73
-<<<<<<< HEAD
               <br/>
-=======
->>>>>>> features/dev-lenses
               Austin, TX 78757
             </p>
             <p>
