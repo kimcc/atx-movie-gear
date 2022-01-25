@@ -23,9 +23,6 @@ function CartDrawer(props) {
     const calculatedReserveDays = calculateRentalPeriod(startDate, endDate);
     console.log(calculatedReserveDays);
     setReserveDays(calculatedReserveDays);
-    console.log(state);
-    state.reserveDays = 4;
-    console.log(this)
   }
 
   return (
@@ -56,6 +53,7 @@ function CartDrawer(props) {
                   setStartDate(startDate);
                   setEndDate(endDate);
                   // const dateDifference = calculateRentalPeriod(startDate, endDate);
+                  setReserveDays(reserveDays);
                   calculate(startDate, endDate);
                   idbPromise('reservationDate', "put",
                   `PickUp: ${new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(startDate)}`+

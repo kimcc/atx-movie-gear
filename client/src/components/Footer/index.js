@@ -14,7 +14,8 @@ function Footer() {
             </h5>
             <p>
               8711 Burnet Road F-73
-              Austin,Tx 78757
+              <br/>
+              Austin, TX 78757
             </p>
             <p>
               512.788.5462
@@ -25,7 +26,8 @@ function Footer() {
               Hours
             </h6>
             <p>
-            Mon-Fri 10 AM to 4 PM,
+            Mon-Fri 10 AM to 4 PM
+            <br/>
             Sat-Sun 11 AM to 3 PM
             </p>
             <p>
