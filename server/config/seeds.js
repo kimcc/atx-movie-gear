@@ -162,14 +162,25 @@ db.once('open', async () => {
     },
     {
       item_type: 'Lens',
-      model: 'asdfasdfasdf',
-      brand: 'asdfasdfasdf',
-      resolution: 'asdfasdfasdf',
-      description:'asdfasdfdddddddddddddddddddddasfasdfasdf',
-      Compatibility: 'asdfasdfasdfasdfsdafasdfasdfasdfsdaasdf',
-      image: 'blackmagic-6k-pro.jpg',
-      price: 85,
-      quantity: 1
+      model: 'CN-E 20mm',
+      brand: 'Canon',
+      resolution: 'T1.3 Aperture',
+      description:'Smooth de-clicked focus and aperture rings, full-frame imaging circle, 105mm filter diameter',
+      Compatibility: 'EF-Mount',
+      image: 'Canon_CN-E_20mm.jpg',
+      price: 50,
+      quantity: 2
+    },
+    {
+      item_type: 'Lens',
+      model: 'Zeiss 16-35mm',
+      brand: 'Sony',
+      resolution: 'f/4 Aperture',
+      description:'Full-frame imaging circle, constant aperture, 72mm filter diameter, Carl Zeiss anti-reflective coating',
+      Compatibility: 'E-Mount',
+      image: 'Sony_Zeiss_16-35.jpg',
+      price: 30,
+      quantity: 2
     }
 
   ]);
