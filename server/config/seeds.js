@@ -170,6 +170,17 @@ db.once('open', async () => {
       image: 'Canon_CN-E_20mm.jpg',
       price: 50,
       quantity: 2
+    },
+    {
+      item_type: 'Lens',
+      model: 'Zeiss 16-35mm',
+      brand: 'Sony',
+      resolution: 'f/4 Aperture',
+      description:'Full-frame imaging circle, constant aperture, 72mm filter diameter, Carl Zeiss anti-reflective coating',
+      Compatibility: 'E-Mount',
+      image: 'Sony_Zeiss_16-35.jpg',
+      price: 30,
+      quantity: 2
     }
 
   ]);
