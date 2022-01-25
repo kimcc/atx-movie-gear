@@ -18,7 +18,7 @@ function HomePageCameraCard(item) {
     // <div className=" cameraCard " >
         <div className=" homepageCard" id={_id}>
           <div className="container" style={{ width: '25rem' }}>
-            <Link to={`/cameras/${_id}`}>
+            <Link to={`/products/${_id}`}>
             <h4 className="my-2 homepageProductName">{brand + " " + model}</h4>
 
               <img alt={model}  justifyContent="center" style={{ width: '22rem' }} variant="top" src={`/images/${image}`} />
