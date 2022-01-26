@@ -7,7 +7,7 @@ function Hero() {
   return (
     <div className="hero-image">
       <div className="container hero-text">
-        <Link to="components/HomepageCardList">
+        <Link to="/cameras">
         <h2>
         New camera arrivals
         </h2>
@@ -16,7 +16,7 @@ function Hero() {
         <p>
         Get the cinema look with great cinema cameras &mdash; at affordable prices!
         </p>
-          <Link to="/products">
+          <Link to="/cameras">
             Learn more
             <span role="img" aria-label="arrow">
               <BsArrowRight />
