@@ -7,7 +7,7 @@ function Hero() {
   return (
     <div className="hero-image">
       <div className="container hero-text">
-        <Link to="cameras">
+        <Link to="/cameras">
         <h2>
         New camera arrivals
         </h2>
