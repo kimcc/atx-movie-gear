@@ -195,14 +195,14 @@ db.once('open', async () => {
     },
     {
       item_type: 'Lens',
-      model: '24-105mm',
+      model: '70-200mm',
       brand: 'Canon',
-      resolution: 'f/4',
-      description:'Faster autofocus, constant aperture, Image Stabilization',
-      Compatibility: 'RF-Mount',
-      image: 'Canon_RF_24-105mm.jpg',
-      price: 25,
-      quantity: 2
+      resolution: 'f/2.8',
+      description:'MK II, constant aperture, Image Stabilization',
+      Compatibility: 'EF-Mount',
+      image: 'Canon_70-200mm.jpg',
+      price: 28,
+      quantity: 1
     },
     {
       item_type: 'Lens',
