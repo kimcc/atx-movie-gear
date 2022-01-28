@@ -178,7 +178,7 @@ db.once('open', async () => {
       resolution: 'f/2.8',
       description:'Autofocus, Mk II, 82mm filter diameter',
       Compatibility: 'EF-Mount',
-      image: 'Canon_24-70mm',
+      image: 'Canon_24-70mm.jpg',
       price: 25,
       quantity: 4
     },
