@@ -173,6 +173,61 @@ db.once('open', async () => {
     },
     {
       item_type: 'Lens',
+      model: '24-70mm',
+      brand: 'Canon',
+      resolution: 'f/2.8',
+      description:'Autofocus, Mk II, 82mm filter diameter',
+      Compatibility: 'EF-Mount',
+      image: 'Canon_24-70mm.jpg',
+      price: 25,
+      quantity: 4
+    },
+    {
+      item_type: 'Lens',
+      model: 'Art 18-35mm',
+      brand: 'Sigma',
+      resolution: 'f/1.8',
+      description:'APS-C sensor, autofocus',
+      Compatibility: 'EF-Mount',
+      image: 'Sigma_Art_18-35mm.jpeg',
+      price: 23,
+      quantity: 2
+    },
+    {
+      item_type: 'Lens',
+      model: '70-200mm',
+      brand: 'Canon',
+      resolution: 'f/2.8',
+      description:'MK II, constant aperture, Image Stabilization',
+      Compatibility: 'EF-Mount',
+      image: 'Canon_70-200mm.jpg',
+      price: 28,
+      quantity: 1
+    },
+    {
+      item_type: 'Lens',
+      model: '28mm',
+      brand: 'Vazen',
+      resolution: 'f/2',
+      description:'1.8x Anamorphic, 2.39:1 aspect ratio',
+      Compatibility: 'MFT-Mount',
+      image: 'Vazen_28mm.jpg',
+      price: 50,
+      quantity: 1
+    },
+    {
+      item_type: 'Lens',
+      model: '40mm',
+      brand: 'Vazen',
+      resolution: 'f/2',
+      description:'1.8x Anamorphic, 2.39:1 aspect ratio',
+      Compatibility: 'MFT-Mount',
+      image: 'Vazen_40mm.jpg',
+      price: 50,
+      quantity: 1
+    },
+    {
+      item_type: 'Lens',
       model: 'Zeiss 16-35mm',
       brand: 'Sony',
       resolution: 'f/4 Aperture',
@@ -182,6 +237,7 @@ db.once('open', async () => {
       price: 30,
       quantity: 2
     }
+   
 
   ]);
 
