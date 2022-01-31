@@ -40,6 +40,11 @@ function Nav() {
             About
           </NavLink>
         </li>
+        <li className="mx-3">
+          <NavLink to="/learn" activeClassName="active" >
+            Learn
+          </NavLink>
+        </li>
       </ul>
     )
   }
@@ -101,8 +106,18 @@ function Nav() {
           </NavLink>
         </li>
         <li className="mx-3">
+          <NavLink to="/lenses" activeClassName="active" onClick={toggleMenu} >
+            Lenses
+          </NavLink>
+        </li>
+        <li className="mx-3">
           <NavLink to="/about" activeClassName="active" onClick={toggleMenu} >
             About
+          </NavLink>
+        </li>
+        <li className="mx-3">
+          <NavLink to="/learn" activeClassName="active" onClick={toggleMenu} >
+            Learn
           </NavLink>
         </li>
       </ul>
