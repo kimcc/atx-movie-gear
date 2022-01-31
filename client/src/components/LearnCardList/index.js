@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LearnCard = () =>  {
+const LearnCardList = () =>  {
   return(
     <div className="learn-container">
       <div className="learn-container-row">
@@ -74,4 +74,4 @@ const LearnCard = () =>  {
   );
 }
 
-export default LearnCard;
+export default LearnCardList;

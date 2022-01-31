@@ -1,5 +1,5 @@
 import React from 'react';
-import LearnCard from '../components/LearnCard';
+import LearnCardList from '../components/LearnCardList';
 
 const Learn = () => {
 
@@ -7,7 +7,7 @@ const Learn = () => {
     <div className="container my-1">
       <h1 className="my-4">Learn</h1>
         <div>
-          <LearnCard />
+          <LearnCardList />
         </div>
     </div>
   );
