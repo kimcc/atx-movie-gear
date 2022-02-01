@@ -23,6 +23,7 @@ import OrderHistory from './pages/OrderHistory';
 import Success from './pages/Success';
 import Cameras from './pages/Cameras';
 import Lenses from './pages/Lenses';
+import Learn from './pages/Learn';
 
 let httpLink;
 
@@ -61,10 +62,11 @@ function App() {
             <Cart />
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route exact path="/about" component={About} />
               <Route exact path="/Login" component={Login} />
               <Route exact path="/Cameras" component={Cameras} />
               <Route exact path="/Lenses" component={Lenses} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/learn" component={Learn} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/orderHistory" component={OrderHistory} />
               <Route exact path="/Products/:id" component={Detail} />
