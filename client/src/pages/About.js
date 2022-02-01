@@ -6,7 +6,7 @@ const About = () => {
       <div className="hero-image-small">
       </div>
       <div className="text-block text-block-left">
-        <h2>About Austin Movie Gear</h2>
+        <h1>About Austin Movie Gear</h1>
         <p>
           Austin Movie Gear, started in 2013, is a locally owned and operated business dedicated to providing low prices and great service to Austin filmmakers. We think you should be able to try out gear before you rent it, so we offer free demos of our gear.
         </p>
