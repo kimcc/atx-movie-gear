@@ -4,12 +4,19 @@ import LearnCardList from '../components/LearnCardList';
 const Learn = () => {
 
   return (
-    <div className="container my-1">
-      <h1 className="my-4">Learn</h1>
-        <div>
-          <LearnCardList />
-        </div>
-    </div>
+    <>
+      <div className="learn-hero-image"></div>
+      <div className="container text-block-wide">
+        <h1>Learn</h1>
+        <p>
+          Learn more about our equipment and how to use it.
+        </p>
+          <div>
+            <LearnCardList />
+          </div>
+      </div>
+    </>
+    
   );
 }
 

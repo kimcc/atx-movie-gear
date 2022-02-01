@@ -343,10 +343,14 @@ select:focus {
   text-align: center;
 }
 
+.text-block-wide {
+  margin: 56px auto;
+}
+
 .text-block {
   text-align: center;
-  max-width: 700px;
   margin: 56px auto;
+  max-width: 700px;
 }
 
 .text-block.text-block-left {
@@ -480,13 +484,24 @@ a.readMore {
 }
 
 /* Learn Page */
+.learn-hero-image {
+  background-image: url("assets/hero-learn.jpg");
+  height: 280px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
 .learn-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
 
 .learn-container-row {
   display: flex;
+  gap: 16px;
 }
 
 .learn-card-container {
@@ -509,6 +524,11 @@ a.readMore {
 
 .learn-title {
   color: var(--dark);
+  margin-top: 8px;
+}
+
+.learn-text {
+  margin-bottom: 48px;
 }
 
 /* Navbar */
